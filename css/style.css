@@ -9,23 +9,25 @@
  body {
      font-family: 'Roboto', sans-serif;
      color: #191919;
+     overflow: hidden;
  }
 
  /* Assign grid instructions to our parent grid container */
 .grid-container {
     display: grid;
-    grid-template-columns: 320px 1fr;
-    grid-template-rows: 150px 1fr;
+    grid-template-columns: 300px 3fr;
     grid-template-areas:
       "sidenav header"
       "sidenav main";
     height: 100vh;
+    width: 100vw;
   }
   
   /* Give every child element its grid name */
   .header {
     grid-area: header;
-    background-color: #D5D5D5;
+    height: 100px;
+    background-color: #e2e2e2;
   }
   
   .sidenav {
@@ -35,7 +37,9 @@
   
   .main {
     grid-area: main;
-    background-color: #D5D5D5;
+    overflow-y: scroll;
+    background-color: #e2e2e2;
+    height: 100vh;
   }
 
   /* Header section - codici css di Fabio */
@@ -43,4 +47,3 @@
   /* Menu section - codici css di Simone */
 
   /* Main section - codici css di Emanuele e Francesco */
-
