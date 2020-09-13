@@ -28,7 +28,7 @@
     grid-area: header;
     height: auto;
     background-color: #e2e2e2;
-    padding: 50px 20px 20px 20px;
+    padding: 40px 20px 20px 20px;
   }
   
   .sidenav {
@@ -40,7 +40,6 @@
     grid-area: main;
     overflow-y: scroll;
     background-color: #e2e2e2;
-    height: 100vh;
     padding: 20px;
   }
 
@@ -68,14 +67,48 @@
     padding: 8px 10px 8px 10px;
   }
 
+  /* Menu section - codici css di Simone */
+  .mobile-nav {
+    display: none;
+  }
+
+  /* Main section - codici css di Emanuele e Francesco */
+  .list-card {
+    width: 100%;
+    padding: 30px 20px 30px 20px;
+    background-color: #ffffff;
+    border-radius: 10px;
+    margin-bottom: 30px;
+  }
+
+  .list-card:last-child {
+    margin-bottom: 0px;
+  }
+
   /* Media rules up to tablet size */
   @media only screen and (max-width: 991.98px) {
+    .mobile-nav {
+      display: block;
+      grid-area: mobile;
+      width: 100%;
+      height: 60px;
+      background-color: #3238D9;
+    }
 
     .grid-container {
       grid-template-columns: 1fr;
-      grid-template-areas: 
+      grid-template-areas:
+      "mobile" 
       "header"
       "main";
+    }
+
+    .header {
+      padding: 20px 10px;
+    }
+
+    .main {
+      padding: 10px;
     }
 
     .sidenav {
@@ -83,8 +116,3 @@
     }
 
   }
-
-
-  /* Menu section - codici css di Simone */
-
-  /* Main section - codici css di Emanuele e Francesco */
