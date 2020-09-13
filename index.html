@@ -6,6 +6,8 @@
     <title>Weather App</title>
     <!-- bootstrap css -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+    <!-- material icons -->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <!-- custom css -->
     <link rel="stylesheet" href="css/style.css">
 </head>
@@ -14,7 +16,24 @@
     <div class="grid-container">
         <header class="header">
             <!-- header della dashboard, qui ci lavora Fabio -->
-            <h1>Header</h1>
+            <div class="container">
+                <div class="row justify-content-md-between align-items-center">
+                    <div class="col-md-4">
+                        <h1 class="main-title">Dashboard</h1>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="info-group">
+                            <span class="info-container">
+                                Today, 16:30
+                                <i class="material-icons align-top">pause</i>
+                            </span>
+                            <span class="info-container">
+                                <i class="material-icons align-top">settings</i>
+                            </span>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </header>
         <aside class="sidenav">
             <!-- menu della dashboard, qui ci lavora Simo -->
@@ -22,9 +41,8 @@
         </aside>
         <main class="main">
             <!-- contenuto prinicipale, qui andrà la lista Emanuele -->
-            <h1>Main content</h1>
             <section class="container main-list">
-                <h1>Questo è il mio branch</h1>
+                <h3>Questo è il mio branch</h3>
             </section>
         </main>
       </div>
