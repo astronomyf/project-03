@@ -1,0 +1,39 @@
+/**
+ * Main css file.
+ * @authors: Francesco Violante, Simone Cavaliere, Fabio Faggion, Emanuele Amicizia
+ */
+
+ /* Google Fonts: Roboto family */
+ @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap');
+
+ body {
+     font-family: 'Roboto', sans-serif;
+     color: #191919;
+ }
+
+ /* Assign grid instructions to our parent grid container */
+.grid-container {
+    display: grid;
+    grid-template-columns: 320px 1fr;
+    grid-template-rows: 150px 1fr;
+    grid-template-areas:
+      "sidenav header"
+      "sidenav main";
+    height: 100vh;
+  }
+  
+  /* Give every child element its grid name */
+  .header {
+    grid-area: header;
+    background-color: #D5D5D5;
+  }
+  
+  .sidenav {
+    grid-area: sidenav;
+    background-color: #3238D9;
+  }
+  
+  .main {
+    grid-area: main;
+    background-color: #D5D5D5;
+  }
