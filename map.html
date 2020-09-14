@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Map</title>
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css"
+    integrity="sha512-xodZBNTC5n17Xt2atTPuE1HxjVMSvLVW9ocqUKLsCC5CXdbqCmblAshOMAS6/keqq/sMZMZ19scR4PsZChSR7A=="
+    crossorigin=""/>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        #mapid {
+            height: 100vh;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- map container -->
+    <div id="mapid"></div>
+
+    <!-- end of body -->
+    <script src="scripts/api.js"></script>
+    <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js" integrity="sha512-XQoYMqMTK8LvdxXYG3nZ448hOEQiglfqkJs1NOQV44cWnUrBc8PkAOcXy20w0vlaXaVUearIOBhiXZ5V3ynxwA==" crossorigin=""></script>
+    <script>
+
+        function createMap(lat, lon) {
+            const mymap = L.map('mapid').setView([lat, lon], 13);
+
+            // initialize map style
+            L.tileLayer('https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_token=pk.eyJ1IjoiZnJhbmNlc2NvdmlvbGFudGUiLCJhIjoiY2tjZzBobG9zMGF4MTJ4cXEyaWV5aDFodSJ9.sxP_T03_g-EJTaT3OLhSKg', {
+                attribution: 'Map data &copy; <a href="https://www.openstreetmap.org/">OpenStreetMap</a> contributors, <a href="https://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, Imagery © <a href="https://www.mapbox.com/">Mapbox</a>',
+                maxZoom: 18,
+                id: 'mapbox/light-v10',
+                tileSize: 512,
+                zoomOffset: -1,
+                accessToken: 'your.mapbox.access.token'
+            }).addTo(mymap);
+
+            var stationIcon = L.icon({
+                iconUrl: 'img/home-icon.png',
+
+                iconSize:     [30, 30], // size of the icon
+                iconAnchor:   [30, 30], // point of the icon which will correspond to marker's location
+                popupAnchor:  [-15, -30] // point from which the popup should open relative to the iconAnchor
+            });
+
+            // add a marker to the map
+            const marker = L.marker([lat, lon], {icon: stationIcon}).addTo(mymap);
+
+            // marker popup
+            marker.bindPopup("<b>Hello world!</b><br>I am a popup.").openPopup();
+        }
+
+        getData().then(data => {
+            createMap(data[0].station.lat, data[0].station.lng);
+        });
+
+    </script>
+</body>
+</html>
