@@ -31,7 +31,7 @@
   .header {
     grid-area: header;
     height: auto;
-    background-color: #e2e2e2;
+    background-color: #ebebeb;
     padding: 40px 20px 20px 20px;
   }
   
@@ -43,7 +43,7 @@
   .main {
     grid-area: main;
     overflow-y: scroll;
-    background-color: #e2e2e2;
+    background-color: #ebebeb;
     padding: 20px;
   }
 
@@ -92,6 +92,15 @@
     font-size: 2rem;
     font-weight: bold;
     color: #3238D9;
+  }
+
+  .filters {
+    border: 0px;
+    background-color: #ebebeb;
+    color: #3238D9;
+    font-size: 18px;
+    font-weight: medium;
+    cursor: pointer;
   }
 
   /* Menu section - codici css di Simone */
