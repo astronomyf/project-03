@@ -45,5 +45,119 @@
   /* Header section - codici css di Fabio */
 
   /* Menu section - codici css di Simone */
+/*card del menu laterale*/
+.sun{
+  color: #3238D9;
+  float: left;
+  font-size: 40px;
+}
+
+.date{
+  margin-top: -10px;
+  font-size: 10px;
+}
+
+  .temperature {
+    font-size: 38pt;
+    color: #3238D9;
+}
+
+.actualPosition{
+    border-radius: 10px;
+}
+
+.position{
+    text-align: center;
+    margin-top: 10px;
+}
+
+.datePosition{
+    margin-left: 50px;
+}
+
+.locationCity{
+    font-size: 20pt;
+}
+
+.divisoryLine{
+  
+  width: 250px;
+  border-top: 1px solid rgb(209, 209, 209);
+  margin-left: -21px;
+  margin-top: 10px;
+}
+
+#myProgressHumidity {
+  width: 100%;
+  background-color: #ddd;
+  border-radius: 10px;
+  margin-top: 10px;
+}
+#myProgressPrecipitation {
+  width: 100%;
+  background-color: #ddd;
+  border-radius: 10px;
+  margin-top: 10px;
+}
+
+#myBarHumidity {
+  width: 80%;
+  height: 10px;
+  background-color: #3238D9;
+  text-align: center;
+  line-height: 30px;
+  color: white;
+  border-radius: 10px;
+  margin-top: 10px;
+}
+#myBarPrecipitation {
+  width: 50%;
+  height: 10px;
+  background-color: #3238D9;
+  text-align: center;
+  line-height: 30px;
+  color: white;
+  border-radius: 10px;
+  margin-top: 10px;
+}
+
+.humidityValue{
+  float: right;
+}
+.precipitationValue{
+  float: right;
+}
 
   /* Main section - codici css di Emanuele e Francesco */
+
+  .list{
+    justify-content: left ;
+    align-items: center;
+    height: 60px;
+    max-width: 70vw;
+    border: 1px solid rgb(209, 209, 209);
+    border-radius: 10px;
+    background-color: #fff;
+  }
+
+  .circularLandscape {
+    margin: 3px;
+    width: 50px;
+    height: 50px;
+    overflow: hidden;
+    border-radius: 50%;
+  }
+  
+  .circularLandscape img {
+    width: auto;
+    height: 100%;
+  }
+
+  .mainPosition{
+    display: flex;
+  }
+ 
+.container{
+  display: flex;
+  
+}
