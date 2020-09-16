@@ -1,0 +1,96 @@
+/**
+ * Main css file.
+ * @authors: Francesco Violante, Simone Cavaliere, Fabio Faggion, Emanuele Amicizia
+ */
+
+ /* Google Fonts: Roboto family */
+ @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap');
+
+ body {
+     font-family: 'Roboto', sans-serif;
+     color: #191919;
+     overflow: hidden;
+ }
+
+ /* Assign grid instructions to our parent grid container */
+.grid-container {
+    display: grid;
+    grid-template-columns: 300px 3fr;
+    grid-template-areas:
+      "sidenav header"
+      "sidenav main";
+    height: 100vh;
+    width: 100vw;
+  }
+  
+  /* Give every child element its grid name */
+  .header {
+    grid-area: header;
+    height: 150px;
+    background-color: #e2e2e2;
+  }
+  
+  .sidenav {
+    grid-area: sidenav;
+    background-color: #3238D9;
+  }
+  
+  .main {
+    grid-area: main;
+    overflow-y: scroll;
+    background-color: #e2e2e2;
+    height: 100vh;
+  }
+
+  /* Header section - codici css di Fabio */
+
+
+  .border {
+    border-radius: 10px!important;
+
+}
+
+.position-btn {
+    float: left;
+    
+}
+
+.margin {
+    margin-left: 60px;
+    margin-right: 20px;
+}
+
+.btn-color {
+  background-color: #3238D9;
+
+}
+
+.belin {
+  color: #3238D9;
+  float: inline-start;
+  margin-right: 40px;
+}
+
+.margin-search {
+  margin-right: 40px;
+}
+
+.margin-icon {
+  margin-top: 3px;  
+}
+
+.margin-reset {
+  margin-left: 40px;
+  margin: auto;
+}
+
+.text-white{
+  color: rgb(255, 255, 255)000
+
+}
+
+
+
+  /* Menu section - codici css di Simone */
+
+  /* Main section - codici css di Emanuele e Francesco */
