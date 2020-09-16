@@ -19,16 +19,13 @@
         const data = await response.json();
         
         for(const country of data) {
-            stations.push({
-                id: country.station.id,
-                status: "close"
-            });
+            stations.push(country);
         }
 
         return data;
 
     } else {
-        console.error("Data could not be obtained:", response.status);
+        console.error("Data could not be obtained.", response.status);
         
         return null;
     }
