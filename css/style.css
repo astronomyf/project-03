@@ -5,6 +5,12 @@
 
  /* Google Fonts: Roboto family */
  @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap');
+ 
+ /* Personal Fonts: VAG Rounded */
+ @font-face {
+  font-family: 'VAG';
+  src: url('../resources/fonts/VAG-bold.ttf');
+ }
 
  body {
      font-family: 'Roboto', sans-serif;
@@ -45,5 +51,40 @@
   /* Header section - codici css di Fabio */
 
   /* Menu section - codici css di Simone */
+  .sidenav-title {
+    color: white;
+    margin-top: 10%;
+    height: 6%;
+  }
+
+  .sidenav-title > h3 {
+    font-family: 'VAG';
+  }
+  
+  .title-icon {
+    float: right;
+    margin-left: 10%;
+    margin-top: 2%;
+  }
+  
+  .sidenav hr {
+    margin-bottom: 15%;
+  }
+  
+  .sidenav li {
+    list-style-type: none;
+    margin-bottom: 15%;
+  }
+  
+  .sidenav i {
+    margin-left: 10%;
+    margin-right: 6%;
+    float: left;
+    color: white;
+  }
+  
+  .sidenav a {
+    color: white;
+  }
 
   /* Main section - codici css di Emanuele e Francesco */
