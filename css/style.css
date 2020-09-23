@@ -154,6 +154,11 @@ body {
 }
 
 /* Sidenav weather card */
+.custom-card {
+  padding-bottom: 15px;
+  border-radius: 10px;
+}
+
 .sun {
   color: #3238D9;
   float: left;
@@ -171,14 +176,7 @@ body {
     color: #3238D9;
 }
 
-.actualPosition{
-    border-radius: 10px;
-    position: absolute;
-    left: 25px;
-    bottom: 30px;
-}
-
-.position{
+.position {
     text-align: center;
     margin-top: 10px;
 }
@@ -191,29 +189,21 @@ body {
     font-size: 20pt;
 }
 
-.divisoryLine{
-  width: 250px;
+.divisory-line {
+  width: 269px;
   border-top: 1px solid rgb(209, 209, 209);
   margin-left: -21px;
   margin-top: 10px;
 }
 
-#myProgressHumidity {
+.custom-progress-bar {
   width: 100%;
   background-color: #ddd;
   border-radius: 10px;
   margin-top: 10px;
 }
 
-#myProgressPrecipitation {
-  width: 100%;
-  background-color: #ddd;
-  border-radius: 10px;
-  margin-top: 10px;
-}
-
-#myBarHumidity {
-  width: 80%;
+.colored-progress {
   height: 6px;
   background-color: #3238D9;
   text-align: center;
@@ -223,22 +213,7 @@ body {
   margin-top: 10px;
 }
 
-#myBarPrecipitation {
-  width: 50%;
-  height: 6px;
-  background-color: #3238D9;
-  text-align: center;
-  line-height: 30px;
-  color: white;
-  border-radius: 10px;
-  margin-top: 10px;
-}
-
-.humidityValue {
-  float: right;
-}
-
-.precipitationValue {
+.progress-value {
   float: right;
 }
 
@@ -358,32 +333,40 @@ body {
 /* Media rules up to tablet size */
 @media only screen and (max-width: 991.98px) {
 	.mobile-nav {
-		display: block;
-		grid-area: mobile;
-		width: 100%;
-		height: 60px;
-		background-color: #3238D9;
-	}
-	.card-content {
-		max-width: 100vw;
-		margin-top: 30px;
-		margin-bottom: 30px;
-		margin-left: auto;
-		margin-right: auto;
-	}
-	.grid-container {
-		grid-template-columns: 1fr;
-		grid-template-areas: "mobile" "header" "main";
-	}
-	.header {
-		padding: 20px 10px;
-	}
-	.main {
-		padding: 10px;
-	}
-	.sidenav {
-		display: none;
-	}
+    display: block;
+    grid-area: mobile;
+    width: 100%;
+    height: 60px;
+    background-color: #3238D9;
+  }
+  .card-content {
+    max-width: 100vw;
+    margin-top: 30px;
+    margin-bottom: 30px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .grid-container {
+    grid-template-columns: 1fr;
+    grid-template-areas:
+    "mobile" 
+    "header"
+    "main";
+  }
+
+  .header {
+    padding: 20px 10px;
+  }
+
+  .main {
+    padding: 10px;
+  }
+
+  .sidenav {
+    display: none;
+  }
+
 	.text-city {
 		font-size: 20px;
 		font-weight: bold;

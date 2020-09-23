@@ -67,53 +67,56 @@
             </div>
             <hr style="height: 1px; border: none; background-color: black" />
             <div class="container">
-               <li>
-                  <a href=""><i class="material-icons">dashboard</i>Dashboard</a>
-               </li>
-               <li>
-                  <a href="">
-                  <i class="material-icons">trending_up</i>Historical data</a>
-               </li>
-               <li>
-                  <a href=""><i class="material-icons">map</i>Map</a>
-               </li>
-            </div>
-            <!-- Current location weather card -->
-            <div class="card actualPosition" style="width: 250px; height: 380px;">
-               <div class="card-body">
-                  <span class="material-icons sun">
-                  wb_sunny
-                  </span>
-                  <div class="datePosition">
-                     <div class="card-title">16:30</div>
-                     <div class="card-text date">Mon, 15 September</div>
+                <div class="menu-list">
+                  <li>
+                    <a href=""><i class="material-icons">dashboard</i>Dashboard</a>
+                  </li>
+                  <li>
+                    <a href="">
+                    <i class="material-icons">trending_up</i>Historical data</a>
+                  </li>
+                  <li>
+                    <a href=""><i class="material-icons">map</i>Map</a>
+                  </li>
+                </div> 
+                <!-- Current location weather card -->
+                <div class="card custom-card">
+                  <div class="card-body">
+                    <span class="material-icons sun">
+                    wb_sunny
+                    </span>
+                    <div class="datePosition">
+                        <div class="card-title">16:30</div>
+                        <div class="card-text date">Mon, 15 September</div>
+                    </div>
+                    <div class="divisory-line"></div>
+                    <div class="position">
+                        <div class="temperature">+31°C</div>
+                        <div class="locationCity">Torino</div>
+                        <div class="locationRegion">Piemonte</div>
+                    </div>
+                    <div class="mt-3">
+                        Humidity
+                        <span class="progress-value">70%</span>
+
+                        <div class="custom-progress-bar">
+                          <div class="colored-progress" style="width: 70%"></div>
+                        </div>
+                    </div>
+                    <div class="mt-3">
+                        Precipitation
+                        <span class="progress-value">20%</span>
+                    </div>
+                    <div class="custom-progress-bar">
+                        <div class="colored-progress" style="width: 20%"></div>
+                    </div>
                   </div>
-                  <div class="divisoryLine"></div>
-                  <div class="position">
-                     <div class="temperature">+31°C</div>
-                     <div class="locationCity">Torino</div>
-                     <div class="locationRegion">Piemonte</div>
-                  </div>
-                  <div class="mt-3">
-                     <span class="humidity">Humidity</span>
-                     <span class="humidityValue">80%</span>
-                     <div id="myProgressHumidity">
-                        <div id="myBarHumidity"></div>
-                     </div>
-                  </div>
-                  <div class="mt-3">
-                     <span class="precipitation">Precipitation</span>
-                     <span class="precipitationValue">50%</span>
-                  </div>
-                  <div id="myProgressPrecipitation">
-                     <div id="myBarPrecipitation"></div>
-                  </div>
-               </div>
+              </div>
             </div>
          </aside>
          <!-- Mobile nav, hidden on large screens -->
          <nav class="mobile-nav">
-            <h4>Sono il menu</h4>
+            <h4>Dashboard</h4>
          </nav>
          <!-- Main section -->
          <main class="main">
