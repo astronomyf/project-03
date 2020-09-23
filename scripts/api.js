@@ -7,8 +7,9 @@
 
 
  APP.api = (() => {
+
+    let stations = [];
     
-    // api functions 
     const getData = async () => {
 
         const response = await fetch("https://www.torinometeo.org/api/v1/realtime/data/", {
@@ -47,10 +48,27 @@
         }
     
      }
+    
+    const getBackupData = async () => {
+
+        const response = await fetch("https://jsonblob.com/api/0ef3d095-fd97-11ea-b2e5-85f177c3d671", {
+            header: {
+                "Content-Type": "application/json" 
+            }
+        });
+
+        if(!response.ok) {
+            throw new Error('Network response was not ok.');
+        }
+
+        const data = await response.json();
+
+        return data;
+    }
 
     return {
-        // return public variables and functions
-        getData
+        getData,
+        getBackupData
     }
  })();
  
