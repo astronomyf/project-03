@@ -38,12 +38,13 @@
             //                                 res.weather_icon.icon, 
             //                                 res.temperature, 
             //                                 res.relative_humidity));
-            //  }
+            // }
+        
             return data;
     
         } else {
-            console.error("Data could not be obtained.", response.status);
-            
+            console.error("Real time API is not up, using a backup instead. Server status: ", response.status);
+
             return null;
         }
     
@@ -58,7 +59,7 @@
         });
 
         if(!response.ok) {
-            throw new Error('Network response was not ok.');
+            throw new Error('Network response was not ok. Backup API couldn\'t be displayed.');
         }
 
         const data = await response.json();
