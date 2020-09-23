@@ -52,7 +52,6 @@ body {
 	height: 100vh;
 }
 
-
 /* === Header === */
 .main-title {
   font-weight: bold;
@@ -148,6 +147,10 @@ body {
 }
 
 /* === Mobile nav === */
+
+.mobile-nav {
+  display: none;
+}
 
 /* Sidenav weather card */
 .sun {
