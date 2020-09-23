@@ -54,7 +54,60 @@ body {
 
 
 /* === Header === */
+.main-title {
+  font-weight: bold;
+}
 
+.info-group {
+  white-space: nowrap;
+}
+
+.info-container {
+  font-weight: lighter;
+  padding: 8px 15px 8px 15px;
+  color: #ffffff;
+  background-color: #3238D9;
+  border-radius: 5px;
+  font-size: 1.05rem;
+  margin-right: 5px;
+}
+
+.info-container:last-child {
+  margin-right: 0px;
+  padding: 8px 10px 8px 10px;
+}
+
+.search-bar {
+  width: 100%;
+  height: auto;
+  padding: 10px 20px 10px 70px;
+  font-weight: lighter;
+  font-size: 1.2rem;
+  border: 0px;
+  border-radius: 5px;
+}
+
+.input-group {
+  position: relative;
+}
+
+.input-group > i {
+  position: absolute;
+  top: 8px;
+  left: 20px;
+  font-size: 2rem;
+  font-weight: bold;
+  color: #3238D9;
+}
+
+.filters {
+  border: 0px;
+  background-color: #ebebeb;
+  color: #3238D9;
+  font-size: 18px;
+  font-weight: medium;
+  cursor: pointer;
+}
 
 /* === Sidenav === */
 
