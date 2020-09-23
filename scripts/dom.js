@@ -7,14 +7,17 @@
  * Functions used to manipulate the dom and display data on the page.
  */
 
-if(!APP) {
-    let APP = {};
-}
-
 APP.dom = (() => {
 
     // dom functions
     // here write variables and declare functions
+
+    const createTableView = (data) => {
+        
+        for(const res of data) {
+            
+        }
+    }
 
     return {
         // return public variables and functions

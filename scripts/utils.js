@@ -7,9 +7,6 @@
  * Utility functions used in other modules.
  */
 
-if(!APP) {
-    let APP = {};
-}
 
 APP.utils = (() => {
 

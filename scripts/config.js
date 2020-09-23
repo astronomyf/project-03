@@ -5,8 +5,8 @@
  * Config module for the weather stations dashboard.
  */
 
- if(!APP) {
-     let APP = {};
- }
+
+ let APP = {};
+ 
 
  
