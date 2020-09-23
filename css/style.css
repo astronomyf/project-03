@@ -3,328 +3,324 @@
  * @authors: Francesco Violante, Simone Cavaliere, Fabio Faggion, Emanuele Amicizia
  */
 
- /* Google Fonts: Roboto family */
- @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap');
- 
- /* Personal Fonts: VAG Rounded */
- @font-face {
-  font-family: 'VAG';
-  src: url('../resources/fonts/VAG-bold.ttf');
- }
 
- body {
-     font-family: 'Roboto', sans-serif;
-     color: #191919;
-     overflow: hidden;
- }
+/* Google Fonts: Roboto family */
 
- /* Assign grid instructions to our parent grid container */
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap');
+
+/* Personal Fonts: VAG Rounded */
+
+@font-face {
+	font-family: 'VAG';
+	src: url('../resources/fonts/VAG-bold.ttf');
+}
+
+body {
+	font-family: 'Roboto', sans-serif;
+	color: #191919;
+	overflow: hidden;
+}
+
+/* === Main layout === */
+/* Assign grid instructions to our parent grid container */
 .grid-container {
-    display: grid;
-    grid-template-columns: 300px 3fr;
-    grid-template-areas:
-      "sidenav header"
-      "sidenav main";
-    height: 100vh;
-    width: 100vw;
-  }
-  
-  /* Give every child element its grid name */
-  .header {
-    grid-area: header;
-    height: 100px;
-    background-color: #e2e2e2;
-  }
-  
-  .sidenav {
-    grid-area: sidenav;
-    background-color: #3238D9;
-  }
-  
-  .main {
-    grid-area: main;
-    overflow-y: scroll;
-    background-color: #e2e2e2;
-    height: 100vh;
-  }
+	display: grid;
+	grid-template-columns: 300px 3fr;
+	grid-template-areas: "sidenav header" "sidenav main";
+	height: 100vh;
+	width: 100vw;
+}
 
-  /* Header section - codici css di Fabio */
 
-  /* Menu section - codici css di Simone */
-  .sidenav-title {
-    color: white;
-    margin-top: 10%;
-    height: 6%;
-  }
+/* Give every child element its grid name */
 
-  .sidenav-title > h3 {
-    font-family: 'VAG';
-  }
-  
-  .title-icon {
-    float: right;
-    margin-left: 10%;
-    margin-top: 2%;
-  }
-  
-  .sidenav hr {
-    margin-bottom: 15%;
-  }
-  
-  .sidenav li {
-    list-style-type: none;
-    margin-bottom: 15%;
-  }
-  
-  .sidenav i {
-    margin-left: 10%;
-    margin-right: 6%;
-    float: left;
-    color: white;
-  }
-  
-  .sidenav a {
-    color: white;
-  }
+.header {
+	grid-area: header;
+	height: 100px;
+	background-color: #e2e2e2;
+}
 
-  /* Main section - codici css di Emanuele e Francesco */
-  .list-card {
-    position: relative;
-    height: 130px;
-    width: 100%;
-    padding: 20px 20px 20px 20px;
-    background-color: #ffffff;
-    border-radius: 10px;
-    margin-bottom: 30px;
-  }
+.sidenav {
+	grid-area: sidenav;
+	background-color: #3238D9;
+}
 
-  .list-card:last-child {
-    margin-bottom: 0px;
-  }
+.main {
+	grid-area: main;
+	overflow-y: scroll;
+	background-color: #e2e2e2;
+	height: 100vh;
+}
 
-  .img-container {
-    width: 100px;
-    height: 100px;
-    border-radius: 50%;
-  }
 
-  .img-container > img {
-    width: 100%;
-    height: 100%;
-    border-radius: 50%;
-    object-fit: cover;
-  }
+/* === Header === */
 
-  .station-text-city{
-    font-size: 1.5rem;
-    font-weight: bold;
-    position: absolute;
-    left: 150px;
-    top: 40px;
-  }
 
-  .station-text-region{
-    color: rgb(175, 175, 175);
-    font-size: 16px;
-    position: absolute;
-    left: 150px;
-    bottom: 35px;
-  }
+/* === Sidenav === */
 
-  .flag {
-    margin-left: 10px;
-  }
+.sidenav-title {
+	color: white;
+	margin-top: 10%;
+	height: 6%;
+}
 
-  .text-altitude{
-    font-size: 16px;
-    position: absolute;
-    right: 50%;
-    bottom: 40px;
-    transform: translateX(50%);
-  }
+.sidenav-title>h3 {
+	font-family: 'VAG';
+}
 
-  .value-altitude{
-    color: #3238D9 ;
-    font-weight: bold;
-    font-size: 25px;
-    position: absolute;
-    right: 50%;
-    bottom: 60px;
-    transform: translateX(50%);
-  }
- 
-  .value-temperature {
-    font-weight: bold;
-    color: #3238D9 ;
-    position: absolute;
-    font-size: 25px;
-    right: 35%;
-    bottom: 60px;
-    transform: translateX(50%);
-  }
+.title-icon {
+	float: right;
+	margin-left: 10%;
+	margin-top: 2%;
+}
 
-  .text-temperature {
-    font-size: 16px;
-    position: absolute;
-    right: 35%;
-    bottom: 40px;
-    transform: translateX(50%);
-  }
+.sidenav hr {
+	margin-bottom: 15%;
+}
 
-  .text-humidity {
-    font-size: 16px;
-    position: absolute;
-    right: 20%;
-    bottom: 40px;
-    transform: translateX(50%);
-  }
+.sidenav li {
+	list-style-type: none;
+	margin-bottom: 15%;
+}
 
-  .value-humidity {
-    font-weight: bold;
-    color: #3238D9 ;
-    position: absolute;
-    font-size: 25px;
-    right: 20%;
-    bottom: 60px;
-    transform: translateX(50%);
-  }
+.sidenav i {
+	margin-left: 10%;
+	margin-right: 6%;
+	float: left;
+	color: white;
+}
 
-  .arrow-icon {
-    position: absolute;
-    right: 50px;
-    cursor: pointer;
-    font-size: 48px!important;
-    color: #767676;
-  }
- 
+.sidenav a {
+	color: white;
+}
 
-  /* Media rules up to tablet size */
-  @media only screen and (max-width: 991.98px) {
-    .mobile-nav {
-      display: block;
-      grid-area: mobile;
-      width: 100%;
-      height: 60px;
-      background-color: #3238D9;
-    }
-    .card-content {
-      max-width: 100vw;
-      margin-top: 30px;
-      margin-bottom: 30px;
-      margin-left: auto;
-      margin-right: auto;
-    }
-    .grid-container {
-      grid-template-columns: 1fr;
-      grid-template-areas:
-      "mobile" 
-      "header"
-      "main";
-    }
+/* === Mobile nav === */
 
-    .header {
-      padding: 20px 10px;
-    }
 
-    .main {
-      padding: 10px;
-    }
+/* === Main section === */
 
-    .sidenav {
-      display: none;
-    }
-    
-    .text-city{
-      font-size: 20px;
-      font-weight: bold;
-      position: absolute;
-      left: 210px;
-      top: 10px;
-    }
-    .flag{
-      height: 15px;
-      position: absolute;
-      left: 270px;
-      top: 19px;
-    }
-  
-    .text-region{
-      color: rgb(175, 175, 175);
-      font-size: 12px;
-      position: absolute;
-      left: 210px;
-      top: 40px;
-    }
-    .text-altitude{
-      width: 35px;
-      font-weight: bold;
-      font-size: 12px;
-      position: absolute;
-      left: 45%;
-      bottom: 30px;
-      transform: translateX(50%);
-    }
-    .valor-altitude{
-      width: 35px;
-      color:black;
-      font-weight: normal;
-      font-size: 10px;
-      position: absolute;
-      left: 46%;
-      bottom: 10px;
-      transform: translateX(50%);
-    }
-    
-    .img-rounded{
-      position: absolute;
-      width: auto;
-      height: 100%;
-      top: 0;
-      left: 0;
-      border-radius: 10px 0 0 10px;
-    }
+.list-card {
+	position: relative;
+	height: 130px;
+	width: 100%;
+	padding: 20px 20px 20px 20px;
+	background-color: #ffffff;
+	border-radius: 10px;
+	margin-bottom: 30px;
+}
 
-    .temperature{
-      width: 35px;
-      color:black;
-      font-weight: normal;
-      font-size: 10px;
-      position: absolute;
-      right: 30%;
-      bottom: 10px;
-      transform: translateX(50%);
-    }
-    .text-temperature{
-      font-weight: bold;
-      font-size: 12px;
-      position: absolute;
-      right: 30%;
-      bottom: 30px;
-      transform: translateX(50%);
-    }
-  
- 
-  .text-humidity{
-    font-weight: bold;
-      font-size: 12px;
-      position: absolute;
-      right: 10%;
-      bottom: 30px;
-      transform: translateX(50%);
-  }
-  
-  .valor-humidity{
-    width: 35px;
-      color:black;
-      font-weight: normal;
-      font-size: 10px;
-      position: absolute;
-      right: 10%;
-      bottom: 10px;
-      
-  }
-  
-  .personal-btn{
-    display:none;
-  }
+.list-card:last-child {
+	margin-bottom: 0px;
+}
+
+.img-container {
+	width: 100px;
+	height: 100px;
+	border-radius: 50%;
+}
+
+.img-container>img {
+	width: 100%;
+	height: 100%;
+	border-radius: 50%;
+	object-fit: cover;
+}
+
+.station-text-city {
+	font-size: 1.5rem;
+	font-weight: bold;
+	position: absolute;
+	left: 150px;
+	top: 40px;
+}
+
+.station-text-region {
+	color: rgb(175, 175, 175);
+	font-size: 16px;
+	position: absolute;
+	left: 150px;
+	bottom: 35px;
+}
+
+.flag {
+	margin-left: 10px;
+}
+
+.text-altitude {
+	font-size: 16px;
+	position: absolute;
+	right: 50%;
+	bottom: 40px;
+	transform: translateX(50%);
+}
+
+.value-altitude {
+	color: #3238D9;
+	font-weight: bold;
+	font-size: 25px;
+	position: absolute;
+	right: 50%;
+	bottom: 60px;
+	transform: translateX(50%);
+}
+
+.value-temperature {
+	font-weight: bold;
+	color: #3238D9;
+	position: absolute;
+	font-size: 25px;
+	right: 35%;
+	bottom: 60px;
+	transform: translateX(50%);
+}
+
+.text-temperature {
+	font-size: 16px;
+	position: absolute;
+	right: 35%;
+	bottom: 40px;
+	transform: translateX(50%);
+}
+
+.text-humidity {
+	font-size: 16px;
+	position: absolute;
+	right: 20%;
+	bottom: 40px;
+	transform: translateX(50%);
+}
+
+.value-humidity {
+	font-weight: bold;
+	color: #3238D9;
+	position: absolute;
+	font-size: 25px;
+	right: 20%;
+	bottom: 60px;
+	transform: translateX(50%);
+}
+
+.arrow-icon {
+	position: absolute;
+	right: 50px;
+	cursor: pointer;
+	font-size: 48px!important;
+	color: #767676;
+}
+
+
+/* Media rules up to tablet size */
+@media only screen and (max-width: 991.98px) {
+	.mobile-nav {
+		display: block;
+		grid-area: mobile;
+		width: 100%;
+		height: 60px;
+		background-color: #3238D9;
+	}
+	.card-content {
+		max-width: 100vw;
+		margin-top: 30px;
+		margin-bottom: 30px;
+		margin-left: auto;
+		margin-right: auto;
+	}
+	.grid-container {
+		grid-template-columns: 1fr;
+		grid-template-areas: "mobile" "header" "main";
+	}
+	.header {
+		padding: 20px 10px;
+	}
+	.main {
+		padding: 10px;
+	}
+	.sidenav {
+		display: none;
+	}
+	.text-city {
+		font-size: 20px;
+		font-weight: bold;
+		position: absolute;
+		left: 210px;
+		top: 10px;
+	}
+	.flag {
+		height: 15px;
+		position: absolute;
+		left: 270px;
+		top: 19px;
+	}
+	.text-region {
+		color: rgb(175, 175, 175);
+		font-size: 12px;
+		position: absolute;
+		left: 210px;
+		top: 40px;
+	}
+	.text-altitude {
+		width: 35px;
+		font-weight: bold;
+		font-size: 12px;
+		position: absolute;
+		left: 45%;
+		bottom: 30px;
+		transform: translateX(50%);
+	}
+	.valor-altitude {
+		width: 35px;
+		color: black;
+		font-weight: normal;
+		font-size: 10px;
+		position: absolute;
+		left: 46%;
+		bottom: 10px;
+		transform: translateX(50%);
+	}
+	.img-rounded {
+		position: absolute;
+		width: auto;
+		height: 100%;
+		top: 0;
+		left: 0;
+		border-radius: 10px 0 0 10px;
+	}
+	.temperature {
+		width: 35px;
+		color: black;
+		font-weight: normal;
+		font-size: 10px;
+		position: absolute;
+		right: 30%;
+		bottom: 10px;
+		transform: translateX(50%);
+	}
+	.text-temperature {
+		font-weight: bold;
+		font-size: 12px;
+		position: absolute;
+		right: 30%;
+		bottom: 30px;
+		transform: translateX(50%);
+	}
+	.text-humidity {
+		font-weight: bold;
+		font-size: 12px;
+		position: absolute;
+		right: 10%;
+		bottom: 30px;
+		transform: translateX(50%);
+	}
+	.valor-humidity {
+		width: 35px;
+		color: black;
+		font-weight: normal;
+		font-size: 10px;
+		position: absolute;
+		right: 10%;
+		bottom: 10px;
+	}
+	.personal-btn {
+		display: none;
+	}
 }
