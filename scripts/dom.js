@@ -14,12 +14,20 @@ APP.dom = (() => {
 
     const createTableView = (data) => {
         
+        const listContainer = document.getElementById('main-list-container');
+
         for(const res of data) {
-            
+
+            const templateView = `<div class="list-card col-12">
+            <h2>${res.station.name}</h2>
+            </div>`;
+
+            listContainer.insertAdjacentHTML('beforeend', templateView);
         }
     }
 
     return {
         // return public variables and functions
+        createTableView
     }
 })();

@@ -10,8 +10,9 @@
     // iifee for calling the other functions
     // main js file
     APP.api.getData().then((data) => {
-        // cc
-        console.log(data);
+
+        APP.dom.createTableView(data);
+        
     });
 
 })();
