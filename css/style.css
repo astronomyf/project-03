@@ -149,6 +149,95 @@ body {
 
 /* === Mobile nav === */
 
+/* Sidenav weather card */
+.sun {
+  color: #3238D9;
+  float: left;
+  font-size: 40px;
+}
+
+.date {
+  margin-top: -10px;
+  font-size: 10px;
+  color: #6d6d6d;
+}
+
+  .temperature {
+    font-size: 38pt;
+    color: #3238D9;
+}
+
+.actualPosition{
+    border-radius: 10px;
+    position: absolute;
+    left: 25px;
+    bottom: 30px;
+}
+
+.position{
+    text-align: center;
+    margin-top: 10px;
+}
+
+.datePosition{
+    margin-left: 50px;
+}
+
+.locationCity{
+    font-size: 20pt;
+}
+
+.divisoryLine{
+  width: 250px;
+  border-top: 1px solid rgb(209, 209, 209);
+  margin-left: -21px;
+  margin-top: 10px;
+}
+
+#myProgressHumidity {
+  width: 100%;
+  background-color: #ddd;
+  border-radius: 10px;
+  margin-top: 10px;
+}
+
+#myProgressPrecipitation {
+  width: 100%;
+  background-color: #ddd;
+  border-radius: 10px;
+  margin-top: 10px;
+}
+
+#myBarHumidity {
+  width: 80%;
+  height: 6px;
+  background-color: #3238D9;
+  text-align: center;
+  line-height: 30px;
+  color: white;
+  border-radius: 10px;
+  margin-top: 10px;
+}
+
+#myBarPrecipitation {
+  width: 50%;
+  height: 6px;
+  background-color: #3238D9;
+  text-align: center;
+  line-height: 30px;
+  color: white;
+  border-radius: 10px;
+  margin-top: 10px;
+}
+
+.humidityValue {
+  float: right;
+}
+
+.precipitationValue {
+  float: right;
+}
+
 
 /* === Main section === */
 
