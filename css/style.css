@@ -35,9 +35,10 @@ body {
 /* Give every child element its grid name */
 
 .header {
-	grid-area: header;
-	height: 200px;
-	background-color: #e2e2e2;
+  grid-area: header;
+  height: auto;
+  background-color: #ebebeb;
+  padding: 40px 20px 20px 20px;
 }
 
 .sidenav {
