@@ -13,7 +13,14 @@
     
     // api functions 
 
+    function x () {
+        console.log('ciao');
+    }
+
     return {
         // return public variables and functions
+        data,
+        x
     }
  })();
+ 
