@@ -13,6 +13,8 @@
     .then((data) => {
 
         APP.dom.createTableView(data);
+        APP.filters.searchFilter();
+        APP.filters.countryFilter();
         
     })
     .catch(() => {

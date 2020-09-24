@@ -27,7 +27,7 @@ APP.dom = (() => {
                     ${res.station.city}
                     <img clas="flag" src="https://www.countryflags.io/${res.station.nation.alpha2_code}/flat/16.png">
                 </div>
-                <div class="station-text-region">${res.station.region.name}, ${res.station.nation.name}</div>
+                <div class="station-text-region">${res.station.region.name}, <span class="text-country">${res.station.nation.name}</span></div>
                 <div class="text-altitude">Altitude</div>
                 <div class="value-altitude">${res.station.elevation}m</div>
                 <div class="text-temperature">Temperature</div>

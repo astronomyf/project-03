@@ -25,7 +25,8 @@ body {
 /* Assign grid instructions to our parent grid container */
 .grid-container {
 	display: grid;
-	grid-template-columns: 300px 3fr;
+  grid-template-columns: 300px 3fr;
+  grid-template-rows: 180px;
 	grid-template-areas: "sidenav header" "sidenav main";
 	height: 100vh;
 	width: 100vw;
@@ -70,11 +71,18 @@ body {
   border-radius: 5px;
   font-size: 1.05rem;
   margin-right: 5px;
+  cursor: default;
 }
 
-.info-container:last-child {
-  margin-right: 0px;
-  padding: 8px 10px 8px 10px;
+.filter-container:hover {
+  background-color: #ffffff;
+  color: #191919;
+  opacity: 0.9;
+  transition: all .3s;
+}
+
+.close-icon {
+  cursor: pointer;
 }
 
 .search-bar {
@@ -105,8 +113,11 @@ body {
   background-color: #ebebeb;
   color: #3238D9;
   font-size: 18px;
-  font-weight: medium;
   cursor: pointer;
+}
+
+.margin-row {
+  margin-top: 20px;
 }
 
 /* === Sidenav === */
