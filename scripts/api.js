@@ -67,9 +67,46 @@
         return data;
     }
 
+    const getLocationWeatherInfo = () => {
+
+        function success(position) {
+            const lat  = position.coords.latitude;
+            const lon = position.coords.longitude;
+
+            callWeatherInfo({lat, lon})
+            .then((data) => {
+                APP.dom.populateWeatherCard(data);
+            });
+        }
+
+        if(navigator.geolocation) {
+            return navigator.geolocation.getCurrentPosition(success);
+        }
+    }
+
+    const callWeatherInfo = async (coords) => {
+
+        let url = `https://api.openweathermap.org/data/2.5/weather?lat=${coords.lat}&lon=${coords.lon}&units=metric&appid=${APP.weatherApiKey}`;
+
+        const response = await fetch(url, {
+            header: {
+                "Content-Type": "application/json" 
+            }
+        });
+
+        if(!response.ok) {
+            throw new Error('Network response was not ok.');
+        }
+
+        const data = await response.json();
+
+        return data;
+    }
+
     return {
         getData,
-        getBackupData
+        getBackupData,
+        getLocationWeatherInfo
     }
  })();
  

@@ -155,7 +155,6 @@ APP.filters = (() => {
                     station.parentElement.parentElement.setAttribute('style', 'display:none!important');
                 }
             }
-            
         }
     }
 

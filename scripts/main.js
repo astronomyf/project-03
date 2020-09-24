@@ -9,13 +9,17 @@
 
     // iifee for calling the other functions
     // main js file
+
+    APP.api.getLocationWeatherInfo();
+    
     APP.api.getData()
     .then((data) => {
 
+        APP.dom.hideLoading();
         APP.dom.createTableView(data);
         APP.filters.searchFilter();
         APP.filters.countryFilter();
-        
+
     })
     .catch(() => {
 

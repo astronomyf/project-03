@@ -8,6 +8,9 @@
  // global modules container 
  let APP = {};
 
+ // api key for current location weather forecast
+ APP.weatherApiKey = "d02c67194cb7a16c03754e73c563ae6d";
+
  // class used to construct a station object
  class Station {
 

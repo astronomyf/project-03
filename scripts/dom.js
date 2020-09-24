@@ -12,6 +12,11 @@ APP.dom = (() => {
     // dom functions
     // here write variables and declare functions
 
+    const hideLoading = () => {
+        const loadingImage = document.getElementById('loading-img');
+        loadingImage.remove();
+    }
+
     const createTableView = (data) => {
         
         const listContainer = document.getElementById('main-list-container');
@@ -41,8 +46,28 @@ APP.dom = (() => {
         }
     }
 
+    const populateWeatherCard = (data) => {
+        const city = document.getElementsByClassName('locationCity')[0];
+        const weather = document.getElementsByClassName('locationRegion')[0];
+        const temperature = document.getElementsByClassName('card-temperature')[0];
+        const humidityValue = document.getElementsByClassName('humidity-value')[0];
+        const humidityBar = document.getElementsByClassName('humidity-bar')[0];
+        const precipValue = document.getElementsByClassName('precip-value')[0];
+        const precipBar = document.getElementsByClassName('precip-bar')[0];
+
+        city.innerText = data.name;
+        weather.innerText = data.weather[0].description.charAt(0).toUpperCase() + data.weather[0].description.slice(1);
+        temperature.innerText = (data.main.temp > 0 ? `${data.main.temp.toFixed(1)}` : `-${data.main.temp.toFixed(1)}`) + '°C';
+        humidityValue.innerText = data.main.humidity + '%';
+        precipValue.innerText = data.clouds.all + '%';
+        humidityBar.style.width = data.main.humidity + '%';
+        precipBar.style.width = data.clouds.all + '%';
+    }
+
     return {
-        // return public variables and functions
-        createTableView
+
+        createTableView,
+        hideLoading,
+        populateWeatherCard
     }
 })();
