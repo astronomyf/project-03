@@ -102,70 +102,46 @@
 
         <main class="main">
             <!-- contenuto prinicipale, qui andrà la lista Emanuele -->
-            <section id="main-list-container" class="container-lg container-md-fluid main-list">
-                <div  class="list-card col-12 ">
-                    <img class="img-rounded" src="img/Panorama_Cogne.jpg" alt="Avatar"> 
-                    <div class="text-city">Cogne</div>
-                    <img class="flag" src="img/italy-flag-waving-icon-64.png" alt="">
-                    <div class="text-region">Valle D'Aosta, Italia</div>
-                    <div class="text-altitude ">Altitude</div>
-                    <div class="valor-altitude">1785 m</div>
-                    <div class="temperature">17°C</div>
-                    <div class="text-temperature">Temperature</div>
-                    <div class="text-humidity">Humidity</div>
-                    <div class="valor-humidity">52%</div>
-                    <button type="button" class="personal-btn btn dropdown-toggle"></button>
-                </div>
-
-                <div class="list-card col-12">
-                    <h2>Questa è una seconda prova</h2>
-                </div>
-                <div class="list-card col-12">
-                    <h2>Questa è una terza prova</h2>
-                </div>
-                <div class="list-card col-12">
-                    <h2>Questa è una quarta prova</h2>
-                </div>
-                <div class="list-card col-12">
-                    <h2>Questa è una quarta prova</h2>
-                </div>
-                <div class="list-card col-12">
-                    <h2>Questa è una quarta prova</h2>
-                </div>
-                <div class="list-card col-12">
-                    <h2>Questa è una ultima prova</h2>
-                </div>
-                <!-- <div class="d-flex justify-content-center">
-                    <img id="loader-div" src="img/ring-loader.gif" class="ring-loader">
-                </div>
-                
-                <div class="list-card col-12">
-                    <h2>Questa è una prova</h2>
-                </div>
-                <div class="list-card col-12">
-                    <h2>Questa è una seconda prova</h2>
-                </div>
-                <div class="list-card col-12">
-                    <h2>Questa è una terza prova</h2>
-                </div>
-                <div class="list-card col-12">
-                    <h2>Questa è una quarta prova</h2>
-                </div>
-                <div class="list-card col-12">
-                    <h2>Questa è una quarta prova</h2>
-                </div>
-                <div class="list-card col-12">
-                    <h2>Questa è una quarta prova</h2>
-                </div>
-                <div class="list-card col-12">
-                    <h2>Questa è una ultima prova</h2>
-                </div>
-            -->
-            </section>
+            <section class="container-lg container-md-fluid main-list">
+              <!-- lista dinamica -->
+              <div class="wrapper" id="wrapper" style="height: auto;">
+                  <div class="header-card col-12" id="header-card">
+                      <div class="img-container">
+                          <img class="img-rounded" src="img/home-icon.png" alt="Station image">
+                      </div>
+                      <div class="text-city">Cogne <img class="flag" src="img/italy-flag-waving-icon-64.png" alt="">
+                      </div>
+                      <div class="text-region">Valle D'Aosta, Italia</div>
+                      <div class="text-altitude ">Altitude</div>
+                      <div class="valor-altitude">1785 m</div>
+                      <div class="temperature">17°C</div>
+                      <div class="text-temperature">Temperature</div>
+                      <div class="text-humidity">Humidity</div>
+                      <div class="valor-humidity">52%</div>
+                      <button type="button" class="personal-btn btn dropdown-toggle collapsible"></button>
+                  </div>
+                  <div class="content" id="contenuto-lista">
+                      <p>
+                          Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nihil dignissimos expedita sint
+                          totam sed. Beatae commodi dolor vero autem sit ut eius quas, illo, quia repellat obcaecati
+                          quibusdam placeat incidunt.
+                      </p>
+                  </div>
+                  <div class="footer" id="footer" style="display: none;">
+                      <div class="pressure"></div>
+                      <div class="dew-point"></div>
+                      <div class="wind"></div>
+                      <div class="burst"></div>
+                      <div class="rain"></div>
+                  </div>
+                  <div class="live" id="live" style="display: none;">
+                     video
+                  </div>
+              </div>
+          </section>
         </main>
       </div>
       <!-- end of body -->
-      <script src="scripts/station.js"></script>
-      <script src="scripts/api.js"></script>
+      <script src="scripts/main.js"></script>
 </body>
 </html>
