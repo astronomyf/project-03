@@ -76,11 +76,17 @@
             callWeatherInfo({lat, lon})
             .then((data) => {
                 APP.dom.populateWeatherCard(data);
+                APP.dom.showWeatherCard();
             });
         }
 
+        function error() {
+            // if geolocation fails, show card with placeholder data
+            APP.dom.showWeatherCard();
+        }
+
         if(navigator.geolocation) {
-            return navigator.geolocation.getCurrentPosition(success);
+            return navigator.geolocation.getCurrentPosition(success, error);
         }
     }
 

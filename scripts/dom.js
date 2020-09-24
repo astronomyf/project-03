@@ -9,9 +9,6 @@
 
 APP.dom = (() => {
 
-    // dom functions
-    // here write variables and declare functions
-
     const hideLoading = () => {
         const loadingImage = document.getElementById('loading-img');
         loadingImage.remove();
@@ -49,6 +46,7 @@ APP.dom = (() => {
     const populateWeatherCard = (data) => {
         const city = document.getElementsByClassName('locationCity')[0];
         const weather = document.getElementsByClassName('locationRegion')[0];
+        const weatherIcon = document.getElementsByClassName('weather-icon')[0];
         const temperature = document.getElementsByClassName('card-temperature')[0];
         const humidityValue = document.getElementsByClassName('humidity-value')[0];
         const humidityBar = document.getElementsByClassName('humidity-bar')[0];
@@ -57,17 +55,24 @@ APP.dom = (() => {
 
         city.innerText = data.name;
         weather.innerText = data.weather[0].description.charAt(0).toUpperCase() + data.weather[0].description.slice(1);
-        temperature.innerText = (data.main.temp > 0 ? `${data.main.temp.toFixed(1)}` : `-${data.main.temp.toFixed(1)}`) + '°C';
+        weatherIcon.innerHTML = `<img src="http://openweathermap.org/img/wn/${data.weather[0].icon}@2x.png">`;
+        temperature.innerText = data.main.temp.toFixed(1) + '°C';
         humidityValue.innerText = data.main.humidity + '%';
         precipValue.innerText = data.clouds.all + '%';
         humidityBar.style.width = data.main.humidity + '%';
         precipBar.style.width = data.clouds.all + '%';
     }
 
+    const showWeatherCard = () => {
+        const weatherCard = document.getElementById('weather-card');
+        weatherCard.classList.add('animate-card');
+    }
+
     return {
 
         createTableView,
         hideLoading,
-        populateWeatherCard
+        populateWeatherCard,
+        showWeatherCard
     }
 })();

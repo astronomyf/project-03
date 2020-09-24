@@ -5,10 +5,14 @@
  * Main page for the weather stations dashboard.
  */
 
-(() => {
+ // TODO
 
-    // iifee for calling the other functions
-    // main js file
+ // gestione stazioni -> inserirle in un array di oggetti
+ // refresh dati ogni 30 secondi 
+ // settare refresh dati a N secondi (max e min)
+ // collapsible
+
+(() => {
 
     APP.api.getLocationWeatherInfo();
     
