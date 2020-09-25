@@ -9,6 +9,7 @@
 APP.filters = (() => {
 
     let activeFilters = [];
+    const selectElement = document.getElementsByTagName('select')[0]; 
 
     const disableSelect = (select, target) => {
 
@@ -39,7 +40,6 @@ APP.filters = (() => {
 
         const searchBar = document.getElementsByClassName('search-bar')[0];
         const stationsList = [].slice.call(document.getElementsByClassName('station-text-city'));
-        const selectElement = document.getElementsByTagName('select')[0]; 
 
         searchBar.addEventListener('keyup', () => {
                    
@@ -69,10 +69,8 @@ APP.filters = (() => {
 
     const countryFilter = () => {
 
-        const selectElement = document.getElementsByTagName('select')[0];
         const stationsList = [].slice.call(document.getElementsByClassName('text-country'));
         const searchBar = document.getElementsByClassName('search-bar')[0];
-        const filterContainer = document.getElementById('custom-filters');
 
         selectElement.addEventListener('change', () => {
 
@@ -103,7 +101,6 @@ APP.filters = (() => {
         
         const gridContainer = document.getElementsByClassName('grid-container')[0];
         const filterContainer = document.getElementById('custom-filters');
-        const selectElement = document.getElementsByTagName('select')[0];
 
         const createButton = 
             `<span class="info-container filter-container">
@@ -135,13 +132,13 @@ APP.filters = (() => {
                     gridContainer.removeAttribute('style');
                 }
 
-                hideFilterElements(selectElement, countryName);
+                hideFilterElements(countryName);
 
             }, false);
         });
     }
 
-    const hideFilterElements = (selectElement, countryName) => {
+    const hideFilterElements = (countryName) => {
         const stationsList = [].slice.call(document.getElementsByClassName('text-country'));
 
         for(const station of stationsList) {

@@ -14,12 +14,17 @@
 
 (() => {
 
+    APP.dom.setMenuLinks();
+
     APP.api.getLocationWeatherInfo();
     
     APP.api.getData()
     .then((data) => {
 
-        APP.dom.hideLoading();
+        if(data) {
+            APP.dom.hideLoading();
+        }
+
         APP.dom.createTableView(data);
         APP.filters.searchFilter();
         APP.filters.countryFilter();
@@ -29,10 +34,19 @@
 
         APP.api.getBackupData()
         .then((data) => {
+            APP.dom.hideLoading();
+            APP.dom.showDataError('warning');
+
+            // unire queste funzioni
             APP.dom.createTableView(data);
+            APP.filters.searchFilter();
+            APP.filters.countryFilter();
         })
         .catch(error => {
             console.error(error);
+
+            APP.dom.hideLoading();
+            APP.dom.showDataError('danger');
         });
         
     });

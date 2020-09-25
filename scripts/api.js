@@ -21,26 +21,26 @@
         if(response.ok) {
             const data = await response.json();
             
-            // for(const res of data) {
+            for(const res of data) {
     
-            //      const station = res.station;
-            //      stations.push(new Station(station.id, 
-            //                                 station.city, 
-            //                                 station.description, 
-            //                                 station.nation.name, 
-            //                                 station.nation.alpha2_code, 
-            //                                 station.region.name, 
-            //                                 station.province.name, 
-            //                                 station.lat, station.lon, 
-            //                                 station.elevation, 
-            //                                 station.image_url, 
-            //                                 station.webcam, 
-            //                                 res.weather_icon.icon, 
-            //                                 res.temperature, 
-            //                                 res.relative_humidity));
-            // }
+                 const station = res.station;
+                 stations.push(new APP.model.Station(station.id, 
+                                            station.city, 
+                                            station.description, 
+                                            station.nation.name, 
+                                            station.nation.alpha2_code, 
+                                            station.region.name, 
+                                            station.province.name, 
+                                            station.lat, station.lon, 
+                                            station.elevation, 
+                                            station.image_url, 
+                                            station.webcam, 
+                                            res.weather_icon.icon, 
+                                            res.temperature, 
+                                            res.relative_humidity));
+            }
         
-            return data;
+            return stations;
     
         } else {
             console.error("Real time API is not up, using a backup instead. Server status: ", response.status);

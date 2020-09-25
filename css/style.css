@@ -133,9 +133,10 @@ body {
 }
 
 .title-icon {
+  font-size: 30px;
 	float: right;
-	margin-left: 10%;
-	margin-top: 2%;
+  margin-left: 10%;
+  margin-top: 3px;
 }
 
 .sidenav hr {
@@ -169,6 +170,7 @@ body {
 .card {
   visibility: hidden;
   opacity: 0;
+  bottom: 0;
 }
 
 .animate-card {
@@ -179,14 +181,20 @@ body {
 
 .custom-card {
   position: relative;
-  margin-bottom: 20px;
+  margin: 0 auto;
+  width: 90%;
   border-radius: 10px;
 }
 
 .weather-icon {
   position: absolute;
-  top: -8px;
-  left: -10px;
+  top: 0px;
+  left: 2px;
+}
+
+.weather-icon > img {
+  width: 80px;
+  height: auto;
 }
 
 .date {
@@ -195,9 +203,14 @@ body {
   color: #6d6d6d;
 }
 
-  .card-temperature {
-    font-size: 38pt;
+.weather-temperature-value {
+    font-size: 2.9rem;
     color: #3238D9;
+}
+
+.weather-metric-text {
+  font-size: 2.5rem;
+  color: #3238D9;
 }
 
 .position {
@@ -214,7 +227,7 @@ body {
 }
 
 .divisory-line {
-  width: 269px;
+  width: 243px;
   border-top: 1px solid rgb(209, 209, 209);
   margin-left: -21px;
   margin-top: 20px;
