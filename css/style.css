@@ -248,7 +248,7 @@ body {
 	position: relative;
 	height: 130px;
 	width: 100%;
-	padding: 20px 20px 20px 20px;
+	padding: 20px;
 	background-color: #ffffff;
 	border-radius: 10px;
 	margin-bottom: 30px;
@@ -295,7 +295,7 @@ body {
 	font-size: 16px;
 	position: absolute;
 	right: 50%;
-	bottom: 40px;
+	bottom: 35px;
 	transform: translateX(50%);
 }
 
@@ -305,7 +305,7 @@ body {
 	font-size: 25px;
 	position: absolute;
 	right: 50%;
-	bottom: 60px;
+	bottom: 55px;
 	transform: translateX(50%);
 }
 
@@ -315,7 +315,7 @@ body {
 	position: absolute;
 	font-size: 25px;
 	right: 35%;
-	bottom: 60px;
+	bottom: 55px;
 	transform: translateX(50%);
 }
 
@@ -323,7 +323,7 @@ body {
 	font-size: 16px;
 	position: absolute;
 	right: 35%;
-	bottom: 40px;
+	bottom: 35px;
 	transform: translateX(50%);
 }
 
@@ -331,7 +331,7 @@ body {
 	font-size: 16px;
 	position: absolute;
 	right: 20%;
-	bottom: 40px;
+	bottom: 35px;
 	transform: translateX(50%);
 }
 
@@ -341,7 +341,7 @@ body {
 	position: absolute;
 	font-size: 25px;
 	right: 20%;
-	bottom: 60px;
+	bottom: 55px;
 	transform: translateX(50%);
 }
 
