@@ -48,18 +48,18 @@ APP.filters = (() => {
                 if(!selectElement.value) {
 
                     if(station.innerText.toUpperCase().search(searchBar.value.toUpperCase()) == -1) {
-                        station.parentElement.setAttribute('style', 'display:none!important');
+                        station.parentElement.parentElement.setAttribute('style', 'display:none!important');
                     } else {
-                        station.parentElement.removeAttribute('style');
+                        station.parentElement.parentElement.removeAttribute('style');
                     }
 
                 } else {
 
                     if(checkArray(station.nextElementSibling.firstElementChild.innerText)) {
                         if(station.innerText.toUpperCase().search(searchBar.value.toUpperCase()) == -1) {
-                            station.parentElement.setAttribute('style', 'display:none!important');
+                            station.parentElement.parentElement.setAttribute('style', 'display:none!important');
                         } else {
-                            station.parentElement.removeAttribute('style');
+                            station.parentElement.parentElement.removeAttribute('style');
                         }
                     }
                 }
@@ -88,18 +88,19 @@ APP.filters = (() => {
             for(const station of stationsList) {
 
                 if(checkArray(station.innerText)) {
-                    station.parentElement.parentElement.removeAttribute('style');
+                    station.parentElement.parentElement.parentElement.removeAttribute('style');
                 } else {
-                    station.parentElement.parentElement.setAttribute('style', 'display:none!important');
+                    station.parentElement.parentElement.parentElement.setAttribute('style', 'display:none!important');
                 }
             }
+
+            selectElement.selectedIndex = 0;
 
         }, false);
     }
 
     const filterButton = () => {
         
-        const gridContainer = document.getElementsByClassName('grid-container')[0];
         const filterContainer = document.getElementById('custom-filters');
 
         const createButton = 
@@ -107,7 +108,6 @@ APP.filters = (() => {
             <span class="filter-text-country">${selectElement.value}</span>
             <i class="material-icons align-top close-icon">close</i></span>`;
 
-        gridContainer.setAttribute('style', 'grid-template-rows: 230px;');
         filterContainer.insertAdjacentHTML('beforeend', createButton);
 
         const filterButtonsIcon = [].slice.call(document.getElementsByClassName('close-icon'));
@@ -144,12 +144,12 @@ APP.filters = (() => {
         for(const station of stationsList) {
             if(activeFilters.length == 0) {
                 selectElement.selectedIndex = 0;
-                station.parentElement.parentElement.removeAttribute('style');
+                station.parentElement.parentElement.parentElement.removeAttribute('style');
 
             } else {
 
                 if(station.innerText == countryName) {
-                    station.parentElement.parentElement.setAttribute('style', 'display:none!important');
+                    station.parentElement.parentElement.parentElement.setAttribute('style', 'display:none!important');
                 }
             }
         }

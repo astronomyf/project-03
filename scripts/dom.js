@@ -57,7 +57,7 @@ APP.dom = (() => {
 
                 } else {
                     header.classList.add('open');
-                    createBodyList(stations[pos], event.target);
+                    createBodyList(stations[pos], event.currentTarget);
                 }
                 
             });
