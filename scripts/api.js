@@ -7,10 +7,10 @@
 
 
  APP.api = (() => {
-
-    let stations = [];
     
     const getData = async () => {
+
+        let stations = [];
 
         const response = await fetch("https://www.torinometeo.org/api/v1/realtime/data/", {
             header: {

@@ -37,6 +37,7 @@ body {
 
 .header {
   grid-area: header;
+  z-index: 1;
   height: auto;
   background-color: #ebebeb;
   padding: 40px 20px 20px 20px;
@@ -72,6 +73,10 @@ body {
   font-size: 1.05rem;
   margin-right: 5px;
   cursor: default;
+}
+
+.info-container > i {
+  cursor: pointer;
 }
 
 .filter-container:hover {

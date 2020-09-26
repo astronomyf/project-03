@@ -20,10 +20,29 @@ APP.dom = (() => {
 
     const hideLoading = () => {
         const loadingImage = document.getElementById('loading-img');
+        //loadingImage.setAttribute('style', 'display:none');
         loadingImage.remove();
     }
 
-    const createTableView = (stations) => {
+    const colorTemperature = (station) => {
+        let color = '49c6ff';
+
+        if(!station.temperature) {
+            return '3238D9';
+        }
+
+        if(station.temperature > 15 && station.temperature < 25) {
+            color = 'f5b13c';
+        }
+
+        if(station.temperature > 25) {
+            color = 'd93232';
+        }
+        
+        return color;
+    }
+
+    const createListView = (stations) => {
         
         const listContainer = document.getElementById('main-list-container');
 
@@ -42,7 +61,7 @@ APP.dom = (() => {
                 <div class="text-altitude">Altitude</div>
                 <div class="value-altitude">${station.elevation == null ? 'N.D.' : station.elevation}m</div>
                 <div class="text-temperature">Temperature</div>
-                <div class="value-temperature">${station.temperature == null ? 'N.D.' : station.temperature + '°C'}</div>
+                <div class="value-temperature" style="color:#${colorTemperature(station)}">${station.temperature == null ? 'N.D.' : station.temperature + '°C'}</div>
                 <div class="text-humidity">Humidity</div>
                 <div class="value-humidity">${station.humidity == null ? 'N.D.' : station.humidity + '%'}</div>
                 <i class="material-icons md-48 arrow-icon">keyboard_arrow_down</i>
@@ -50,6 +69,17 @@ APP.dom = (() => {
 
             listContainer.insertAdjacentHTML('beforeend', templateView);
         }
+    }
+
+    const refreshListView = (stations) => {
+        const stationsTemperature = [].slice.call(document.getElementsByClassName('value-temperature'));
+        const stationsHumidity = [].slice.call(document.getElementsByClassName('value-humidity'));
+
+        stations.forEach((station, index) => {
+            stationsTemperature[index].style.color = colorTemperature(station);
+            stationsTemperature[index].innerText = station.temperature + '°C';
+            stationsHumidity[index].innerText = station.humidity + '%';
+        });
     }
 
     const populateWeatherCard = (data) => {
@@ -99,13 +129,37 @@ APP.dom = (() => {
         listContainer.insertAdjacentHTML('beforeend', warningTemplate);
     }
 
+    const refreshButton = (id, interval) => {
+        const pauseButton = document.getElementById('pause-btn');
+
+        pauseButton.addEventListener('click', () => {
+            
+            if(pauseButton.innerText == 'pause') {
+                pauseButton.innerText = 'play_arrow';
+                APP.utils.pauseRefresh(id);
+            } else {
+                pauseButton.innerText = 'pause';
+                APP.utils.runRefresh(interval);
+            }
+        });
+    }
+
+    const addRefreshTime = (time) => {
+        const timeContainer = document.querySelector('.info-container > span');
+        timeContainer.innerText = time.toLocaleTimeString('it-IT');
+    }
+
     return {
 
-        createTableView,
+        createListView,
+        refreshListView,
         hideLoading,
         populateWeatherCard,
         showWeatherCard,
         setMenuLinks,
-        showDataError
+        showDataError,
+        addRefreshTime,
+        refreshButton
     }
+
 })();
