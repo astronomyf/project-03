@@ -20,7 +20,6 @@ APP.dom = (() => {
 
     const hideLoading = () => {
         const loadingImage = document.getElementById('loading-img');
-        //loadingImage.setAttribute('style', 'display:none');
         loadingImage.remove();
     }
 

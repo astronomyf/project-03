@@ -272,7 +272,9 @@ body {
 
 /* Station list header rules */
 .list-header {
-	position: relative;
+  position: relative;
+  z-index: 1;
+  cursor: pointer;
 	height: 130px;
 	width: 100%;
   border-radius: 10px;
@@ -375,7 +377,12 @@ body {
 	right: 50px;
 	cursor: pointer;
 	font-size: 48px!important;
-	color: #767676;
+  color: #767676;
+  transform: rotate(-90deg);
+}
+
+.list-header:hover .arrow-icon {
+  transform: rotate(0deg);
 }
 
 /* Station list body rules */
