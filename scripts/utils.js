@@ -62,6 +62,7 @@ APP.utils = (() => {
     const createView = (data) => {
 
         APP.dom.createListView(data);
+        APP.dom.makeHeaderClickable(data);
         APP.filters.searchFilter();
         APP.filters.countryFilter();
     }

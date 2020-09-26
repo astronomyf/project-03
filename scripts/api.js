@@ -26,7 +26,7 @@
                  const station = res.station;
                  stations.push(new APP.model.Station(station.id, 
                                             station.city, 
-                                            station.description, 
+                                            station.climate, 
                                             station.nation.name, 
                                             station.nation.alpha2_code, 
                                             station.region.name, 

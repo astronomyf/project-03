@@ -42,6 +42,29 @@ APP.dom = (() => {
         return color;
     }
 
+    const makeHeaderClickable = (stations) => {
+        const stationNames = [].slice.call(document.getElementsByClassName('station-text-city'));
+
+        for(const name of stationNames) {
+
+            const header = name.parentElement;
+            let pos = stations.map(e => e.name).indexOf(name.innerText.replace(/\s$/g, ''));
+
+            header.addEventListener('click', (event) => {
+
+                if(header.classList.contains('open')) {
+                    header.nextElementSibling.remove();
+                    header.classList.remove('open');
+
+                } else {
+                    header.classList.add('open');
+                    createBodyList(stations[pos], event.target);
+                }
+                
+            });
+        }
+    }
+
     const createListView = (stations) => {
         
         const listContainer = document.getElementById('main-list-container');
@@ -49,26 +72,54 @@ APP.dom = (() => {
         for(const station of stations) {
 
             const templateView = `
-            <div class="list-card col-12 d-flex align-items-center">
-                <div class="img-container">
-                    <img class="img-rounded" src="${station.stationImage}" alt="Station image"> 
+            <div class="list-wrapper col-12">
+                <div class="list-header d-flex align-items-center">
+                    <div class="img-container">
+                        <img class="img-rounded" src="${station.stationImage}" alt="Station image"> 
+                    </div>
+                    <div class="station-text-city">
+                        ${station.name}
+                        <img clas="flag" src="https://www.countryflags.io/${station.nationCode}/flat/16.png">
+                    </div>
+                    <div class="station-text-region">${station.region}, <span class="text-country">${station.nation}</span></div>
+                    <div class="text-altitude">Altitude</div>
+                    <div class="value-altitude">${station.elevation == null ? 'N.D.' : station.elevation}m</div>
+                    <div class="text-temperature">Temperature</div>
+                    <div class="value-temperature" style="color:#${colorTemperature(station)}">${station.temperature == null ? 'N.D.' : station.temperature + '°C'}</div>
+                    <div class="text-humidity">Humidity</div>
+                    <div class="value-humidity">${station.humidity == null ? 'N.D.' : station.humidity + '%'}</div>
+                    <i class="material-icons md-48 arrow-icon">keyboard_arrow_down</i>
                 </div>
-                <div class="station-text-city">
-                    ${station.name}
-                    <img clas="flag" src="https://www.countryflags.io/${station.nationCode}/flat/16.png">
-                </div>
-                <div class="station-text-region">${station.region}, <span class="text-country">${station.nation}</span></div>
-                <div class="text-altitude">Altitude</div>
-                <div class="value-altitude">${station.elevation == null ? 'N.D.' : station.elevation}m</div>
-                <div class="text-temperature">Temperature</div>
-                <div class="value-temperature" style="color:#${colorTemperature(station)}">${station.temperature == null ? 'N.D.' : station.temperature + '°C'}</div>
-                <div class="text-humidity">Humidity</div>
-                <div class="value-humidity">${station.humidity == null ? 'N.D.' : station.humidity + '%'}</div>
-                <i class="material-icons md-48 arrow-icon">keyboard_arrow_down</i>
             </div>`;
 
             listContainer.insertAdjacentHTML('beforeend', templateView);
         }
+    }
+
+    const createBodyList = (station, target) => {
+        
+        const bodyTemplate = `
+            <div class="list-body">
+                <div class="list-body-general">
+                    <p>${station.description}</p>
+                    <a href="" class="btn btn-primary">Open in map</a>
+                </div>
+                <div class="list-body-info">
+                    <div class="pressure position-icon-footer-card"></div>
+                    <div class="pressure-text">pressure</div>
+                    <div class="dew-point position-icon-footer-card"></div>
+                    <div class="dew-point-text">dew-point</div>
+                    <div class="wind position-icon-footer-card"></div>
+                    <div class="wind-text">wind</div>
+                    <div class="burst position-icon-footer-card"></div>
+                    <div class="burst-text">burst</div>
+                    <div class="rain position-icon-footer-card"></div>
+                    <div class="rain-text">rain</div>
+                </div>
+                <div class="list-body-live" style="background-image:url(${station.webcamLiveUrl})"></div>
+        </div>`;
+
+        target.insertAdjacentHTML('afterend', bodyTemplate);
     }
 
     const refreshListView = (stations) => {
@@ -152,6 +203,8 @@ APP.dom = (() => {
     return {
 
         createListView,
+        createBodyList,
+        makeHeaderClickable,
         refreshListView,
         hideLoading,
         populateWeatherCard,
