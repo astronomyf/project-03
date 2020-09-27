@@ -94,13 +94,12 @@ APP.filters = (() => {
                 }
             }
 
-            selectElement.selectedIndex = 0;
-
         }, false);
     }
 
     const filterButton = () => {
         
+        const gridContainer = document.getElementsByClassName('grid-container')[0];
         const filterContainer = document.getElementById('custom-filters');
 
         const createButton = 
@@ -109,6 +108,7 @@ APP.filters = (() => {
             <i class="material-icons align-top close-icon">close</i></span>`;
 
         filterContainer.insertAdjacentHTML('beforeend', createButton);
+        gridContainer.setAttribute('style', 'grid-template-rows: 230px');
 
         const filterButtonsIcon = [].slice.call(document.getElementsByClassName('close-icon'));
 

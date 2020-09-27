@@ -5,11 +5,6 @@
  * Main page for the weather stations dashboard.
  */
 
- // TODO
- // refresh dati ogni 30 secondi (mancano i dati del body)
- // settare refresh dati a N secondi (max e min)
- // collapsible
-
 (() => {
 
     let time = new Date();
@@ -17,7 +12,6 @@
 
     APP.dom.addRefreshTime(time);
 
-    APP.dom.setMenuLinks();
     APP.api.getLocationWeatherInfo();
     
     APP.api.getData()
@@ -30,6 +24,8 @@
         APP.utils.createView(data);
         let intervalId = APP.utils.runRefresh(refreshTime);
         APP.dom.refreshButton(intervalId, refreshTime);
+
+        APP.dom.setMenuLinks(data);
 
     })
     .catch(() => {

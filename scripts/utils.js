@@ -15,20 +15,44 @@ APP.utils = (() => {
         return await response.text();
     }
 
-    const loadMapPage = async () => {
+    const loadMapPage = async (stations, coords, options) => {
         const mainContainer = document.getElementsByClassName('main')[0];
         const header = document.getElementsByTagName('header')[0];
 
         mainContainer.innerHTML = await fetchDynamicPage('../map.html');
-
-        let x = 10;
         header.style.display = "none";
-        document.getElementById('title-art').innerText = x;
+
+        createMapView(stations, coords, options);
     }
 
-    const loadHomePage = async () => {
-        const mainContainer = document.getElementById('main-list-container');
-        mainContainer.innerHTML = await fetchDynamicPage('../stations.html');
+    const createMapView = (stations, initialCoords, options = 'all') => {
+        const stationsMap = L.map('stationsMap').setView(initialCoords, 7);
+
+        // initialize map style
+        L.tileLayer('https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_token={accessToken}', {
+            attribution: 'Map data &copy; <a href="https://www.openstreetmap.org/">OpenStreetMap</a> contributors, <a href="https://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, Imagery © <a href="https://www.mapbox.com/">Mapbox</a>',
+            maxZoom: 18,
+            id: 'mapbox/light-v10',
+            tileSize: 512,
+            zoomOffset: -1,
+            accessToken: 'pk.eyJ1IjoiZnJhbmNlc2NvdmlvbGFudGUiLCJhIjoiY2tjZzBobG9zMGF4MTJ4cXEyaWV5aDFodSJ9.sxP_T03_g-EJTaT3OLhSKg'
+        }).addTo(stationsMap);
+
+        if(options != 'all') {
+
+            L.marker([stations.lat, stations.lon]).addTo(stationsMap)
+            .bindPopup('<b>' + stations.name + '</b><br>' + stations.elevation + ' m')
+            .openPopup();
+
+        } else {
+
+            for(const station of stations) {
+                // add a markers to the map
+                L.marker([station.lat, station.lon]).addTo(stationsMap)
+                .bindPopup('<b>' + station.name + '</b><br>' + station.elevation + ' m');
+            }
+        }
+
     }
 
     const refreshData = () => {
@@ -75,7 +99,8 @@ APP.utils = (() => {
     }
 
     return {
-        loadDynamicPage,
+        loadMapPage,
+        createMapView,
         createView,
         runRefresh,
         pauseRefresh

@@ -9,13 +9,23 @@
 
 APP.dom = (() => {
 
-    const setMenuLinks = () => {
+    const setMenuLinks = (stations) => {
         const linkList = document.querySelectorAll('.menu-list li a');
 
         // menu link
         linkList[2].addEventListener('click', () => {
-            APP.utils.loadDynamicPage('../about.html');
+
+            APP.utils.loadMapPage(stations, [stations[61].lat, stations[61].lon], 'all');
+            fixMapView();
         });
+    }
+
+    const fixMapView = () => {
+        const gridContainer = document.getElementsByClassName('grid-container')[0];
+        const mainContainer = document.getElementsByClassName('main')[0];
+
+        gridContainer.setAttribute('style', 'grid-template-areas: "sidenav main" "sidenav main"');
+        mainContainer.setAttribute('style', 'padding: 0px');
     }
 
     const hideLoading = () => {
@@ -41,6 +51,16 @@ APP.dom = (() => {
         return color;
     }
 
+    const openStationInMap = (station, target) => {
+        const stationButton = target.nextElementSibling.querySelector('a');
+
+        stationButton.addEventListener('click', () => {
+
+            APP.utils.loadMapPage(station, [station.lat, station.lon], 'single');
+            fixMapView();
+        });
+    }
+
     const makeHeaderClickable = (stations) => {
         const stationNames = [].slice.call(document.getElementsByClassName('station-text-city'));
 
@@ -58,6 +78,7 @@ APP.dom = (() => {
                 } else {
                     header.classList.add('open');
                     createBodyList(stations[pos], event.currentTarget);
+                    openStationInMap(stations[pos], event.currentTarget);
                 }
                 
             });
@@ -116,7 +137,7 @@ APP.dom = (() => {
             <div class="list-body">
                 <div class="list-body-general">
                     <p>${station.description}</p>
-                    <a href="" class="btn btn-primary">Open in map</a>
+                    <a class="btn btn-primary">Open in map</a>
                 </div>
                 <div class="list-body-info">
                     <div class="pressure position-icon-footer-card"></div>
