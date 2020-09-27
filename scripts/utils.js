@@ -63,14 +63,14 @@ APP.utils = (() => {
         APP.api.getData()
         .then((data) => {
 
-            APP.dom.refreshListView(data);
+            APP.dom.refreshHeaderView(data);
         })
         .catch(() => {
 
             APP.api.getBackupData()
             .then((data) => {
 
-                APP.dom.refreshListView(data);
+                APP.dom.refreshHeaderView(data);
             })
             .catch((error) => {
                 console.error(error);

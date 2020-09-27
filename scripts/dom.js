@@ -93,7 +93,7 @@ APP.dom = (() => {
 
             const templateView = `
             <div class="list-wrapper col-12">
-                <div class="list-header d-flex align-items-center">
+                <div class="list-header align-items-center">
                     <div class="img-container">
                         <img class="img-rounded" src="${station.stationImage}" alt="Station image"> 
                     </div>
@@ -108,7 +108,9 @@ APP.dom = (() => {
                     <div class="value-temperature" style="color:#${colorTemperature(station)}">${station.temperature == null ? 'N.D.' : station.temperature + '°C'}</div>
                     <div class="text-humidity">Humidity</div>
                     <div class="value-humidity">${station.humidity == null ? 'N.D.' : station.humidity + '%'}</div>
-                    <i class="material-icons md-48 arrow-icon">keyboard_arrow_down</i>
+                    <div class="arrow-icon">
+                        <i class="material-icons md-48 icon">keyboard_arrow_down</i>
+                    </div>
                 </div>
             </div>`;
 
@@ -140,16 +142,48 @@ APP.dom = (() => {
                     <a class="btn btn-primary">Open in map</a>
                 </div>
                 <div class="list-body-info">
-                    <div class="pressure position-icon-footer-card"></div>
-                    <div class="pressure-text">pressure</div>
-                    <div class="dew-point position-icon-footer-card"></div>
-                    <div class="dew-point-text">dew-point</div>
-                    <div class="wind position-icon-footer-card"></div>
-                    <div class="wind-text">wind</div>
-                    <div class="burst position-icon-footer-card"></div>
-                    <div class="burst-text">burst</div>
-                    <div class="rain position-icon-footer-card"></div>
-                    <div class="rain-text">rain</div>
+                    <div class="max-temperature d-flex flex-row align-items-center">
+                        <i class="material-icons info-icon">map</i>
+                        <div class="info-values d-flex flex-column">
+                            ${station.maxTemp}°C<br>
+                            <span>Max temperature</span>
+                        </div>
+                    </div>
+                    <div class="min-temperature d-flex flex-row align-items-center">
+                        <i class="material-icons info-icon">map</i>
+                        <div class="info-values d-flex flex-column">
+                            ${station.minTemp}°C<br>
+                            <span>Min Temperature</span>
+                        </div>
+                    </div>
+                    <div class="pressure d-flex flex-row align-items-center">
+                        <i class="material-icons info-icon">map</i>
+                        <div class="info-values d-flex flex-column">
+                            ${station.maxHum}%<br>
+                            <span>Max Humidity</span>
+                        </div>
+                    </div>
+                    <div class="wind d-flex flex-row align-items-center">
+                        <i class="material-icons info-icon">map</i>
+                        <div class="info-values d-flex flex-column">
+                            ${station.minHum}%<br>
+                            <span>Min Humidity</span>
+                        </div>
+                    </div>
+                    <div class="burst d-flex flex-row align-items-center">
+                        <i class="material-icons info-icon">map</i>
+                        <div class="info-values d-flex flex-column">
+                            ${station.wind} km/s<br>
+                            <span>Wind strength</span>
+                        </div>
+                    </div>
+                    <div class="rain d-flex flex-row align-items-center">
+                        <i class="material-icons info-icon">map</i>
+                        <div class="info-values d-flex flex-column">
+                            ${station.rain} mm<br>
+                            <span>Daily Rain</span>
+                        </div>
+                    </div>
                 </div>
                 <div class="list-body-live" style="background-image:url(${getLiveImage(station)})"></div>
         </div>`;
@@ -157,7 +191,7 @@ APP.dom = (() => {
         target.insertAdjacentHTML('afterend', bodyTemplate);
     }
 
-    const refreshListView = (stations) => {
+    const refreshHeaderView = (stations) => {
         const stationsTemperature = [].slice.call(document.getElementsByClassName('value-temperature'));
         const stationsHumidity = [].slice.call(document.getElementsByClassName('value-humidity'));
 
@@ -166,6 +200,10 @@ APP.dom = (() => {
             stationsTemperature[index].innerText = station.temperature + '°C';
             stationsHumidity[index].innerText = station.humidity + '%';
         });
+    }
+
+    const refreshBodyView = (stations) => {
+         
     }
 
     const populateWeatherCard = (data) => {
@@ -240,7 +278,7 @@ APP.dom = (() => {
         createListView,
         createBodyList,
         makeHeaderClickable,
-        refreshListView,
+        refreshHeaderView,
         hideLoading,
         populateWeatherCard,
         showWeatherCard,

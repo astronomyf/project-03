@@ -39,7 +39,13 @@
                                             station.webcam_url, 
                                             res.weather_icon.icon, 
                                             res.temperature, 
-                                            res.relative_humidity));
+                                            res.relative_humidity,
+                                            res.temperature_max,
+                                            res.temperature_min,
+                                            res.relative_humidity_max,
+                                            res.relative_humidity_min,
+                                            res.wind_strength,
+                                            res.rain));
             }
         
             return stations;

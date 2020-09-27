@@ -9,7 +9,7 @@
 
     class Station {
 
-        constructor(id, name, description, nation, nationCode, region, province, lat, lon, elevation, stationImage, webcamLiveUrl, webcamLiveUrl2, weatherIcon, temperature, humidity) {
+        constructor(id, name, description, nation, nationCode, region, province, lat, lon, elevation, stationImage, webcamLiveUrl, webcamLiveUrl2, weatherIcon, temperature, humidity, maxTemp, minTemp, maxHum, minHum, rain, wind) {
             this.id = id;
             this.name = name;
             this.description = description;
@@ -25,7 +25,13 @@
             this.webcamLiveUrl2 = webcamLiveUrl2;
             this.weatherIcon = weatherIcon;
             this.temperature = temperature;
-            this.humidity = humidity;  
+            this.humidity = humidity;
+            this.maxTemp = maxTemp; 
+            this.minTemp = minTemp; 
+            this.maxHum = maxHum; 
+            this.minHum = minHum; 
+            this.rain = rain; 
+            this.wind = wind;  
         }
     }
 
