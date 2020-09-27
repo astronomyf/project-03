@@ -95,6 +95,21 @@ APP.dom = (() => {
         }
     }
 
+    const getLiveImage = (station) => {
+        let url = station.webcamLiveUrl;
+
+        if(!url) {
+            url = station.webcamLiveUrl2;
+
+            if(!url) {
+                // use placeholder instead
+                url = 'https://riabilitazionelavalle.it/wp-content/uploads/2016/10/orionthemes-placeholder-image.jpg';
+            }
+        }
+
+        return url;
+    }
+
     const createBodyList = (station, target) => {
         
         const bodyTemplate = `
@@ -115,7 +130,7 @@ APP.dom = (() => {
                     <div class="rain position-icon-footer-card"></div>
                     <div class="rain-text">rain</div>
                 </div>
-                <div class="list-body-live" style="background-image:url(${station.webcamLiveUrl})"></div>
+                <div class="list-body-live" style="background-image:url(${getLiveImage(station)})"></div>
         </div>`;
 
         target.insertAdjacentHTML('afterend', bodyTemplate);

@@ -34,7 +34,8 @@
                                             station.lat, station.lon, 
                                             station.elevation, 
                                             station.image_url, 
-                                            station.webcam, 
+                                            station.webcam,
+                                            station.webcam_url, 
                                             res.weather_icon.icon, 
                                             res.temperature, 
                                             res.relative_humidity));

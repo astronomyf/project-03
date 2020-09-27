@@ -15,13 +15,20 @@ APP.utils = (() => {
         return await response.text();
     }
 
-    const loadDynamicPage = async (page) => {
-        const mainContainer = document.getElementById('main-list-container');
+    const loadMapPage = async () => {
+        const mainContainer = document.getElementsByClassName('main')[0];
         const header = document.getElementsByTagName('header')[0];
-        mainContainer.innerHTML = await fetchDynamicPage(page);
+
+        mainContainer.innerHTML = await fetchDynamicPage('../map.html');
+
         let x = 10;
         header.style.display = "none";
         document.getElementById('title-art').innerText = x;
+    }
+
+    const loadHomePage = async () => {
+        const mainContainer = document.getElementById('main-list-container');
+        mainContainer.innerHTML = await fetchDynamicPage('../stations.html');
     }
 
     const refreshData = () => {

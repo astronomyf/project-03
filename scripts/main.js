@@ -13,7 +13,7 @@
 (() => {
 
     let time = new Date();
-    let refreshTime = 10;
+    let refreshTime = 1000;
 
     APP.dom.addRefreshTime(time);
 
@@ -53,7 +53,6 @@
             
             APP.dom.showDataError('danger');
         });
-        
     });
 
 })();
