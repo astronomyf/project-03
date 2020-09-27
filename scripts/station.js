@@ -7,6 +7,7 @@
 
  APP.model = (() => {
 
+    // class used to create the array of stations on api.js
     class Station {
 
         constructor(id, name, description, nation, nationCode, region, province, lat, lon, elevation, stationImage, webcamLiveUrl, webcamLiveUrl2, weatherIcon, temperature, humidity, maxTemp, minTemp, maxHum, minHum, rain, wind) {

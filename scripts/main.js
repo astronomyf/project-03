@@ -8,43 +8,36 @@
 (() => {
 
     let time = new Date();
-    let refreshTime = 1000;
+    let refreshTime = 30;
 
+    // add mobile menu
+    APP.dom.toggleMenu();
+
+    // add last refresh time
     APP.dom.addRefreshTime(time);
 
+    // display weather card based on user location
     APP.api.getLocationWeatherInfo();
     
+    // main api endpoint call
     APP.api.getData()
     .then((data) => {
 
-        if(data) {
-            APP.dom.hideLoading();
-        }
-
-        APP.utils.createView(data);
-        let intervalId = APP.utils.runRefresh(refreshTime);
-        APP.dom.refreshButton(intervalId, refreshTime);
-
-        APP.dom.setMenuLinks(data);
-
+        APP.utils.createView(data, refreshTime);
     })
     .catch(() => {
 
+        // if primary api fails, use the backup data
         APP.api.getBackupData()
         .then((data) => {
 
-            if(data) {
-                APP.dom.hideLoading();
-            }
-
             APP.dom.showDataError('warning');
-
-            APP.utils.createView(data);
-            let intervalId = APP.utils.runRefresh(refreshTime);
-            APP.dom.refreshButton(intervalId, refreshTime);
+            APP.utils.createView(data, refreshTime);
 
         })
         .catch(error => {
+
+            // if second api call fails, show the user an error message
             console.error(error);
             
             APP.dom.showDataError('danger');

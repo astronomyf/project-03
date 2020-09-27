@@ -8,9 +8,17 @@
 
 APP.filters = (() => {
 
+    // current active filters on the page
     let activeFilters = [];
+
+    // filter select on index
     const selectElement = document.getElementsByTagName('select')[0]; 
 
+    /**
+     * Disable the value for a specific country inside the select tag.
+     * @param {object} select a document object (select tag).
+     * @param {string} target the name of the value to disable or activate.
+     */
     const disableSelect = (select, target) => {
 
         for(let i = 0; i < select.length; i++) {
@@ -25,6 +33,11 @@ APP.filters = (() => {
         }
     }
 
+    /**
+     * Check if a country (or element) is inside the activeFilters array.
+     * @param {string} el element to be checked.
+     * @returns {boolean}
+     */
     const checkArray = (el) => {
 
         for(const filter of activeFilters) {
@@ -36,6 +49,12 @@ APP.filters = (() => {
         return false;
     }
 
+    /**
+     * Search filter.
+     * 
+     * When a user type a letter in the searchbox the elements that don't match the list
+     * of stations will not be displayed.
+     */
     const searchFilter = () => {
 
         const searchBar = document.getElementsByClassName('search-bar')[0];
@@ -67,6 +86,12 @@ APP.filters = (() => {
         }, false);
     }
 
+    /**
+     * Select filter to choose one (or more) countries.
+     * 
+     * When the user select a country to filter it will display the
+     * selected filter in a box and disable it.
+     */
     const countryFilter = () => {
 
         const stationsList = [].slice.call(document.getElementsByClassName('text-country'));
@@ -97,6 +122,10 @@ APP.filters = (() => {
         }, false);
     }
 
+    /**
+     * Filter button that is displayed after a user has chose 
+     * a country to filter (can be comulative).
+     */
     const filterButton = () => {
         
         const gridContainer = document.getElementsByClassName('grid-container')[0];
@@ -108,8 +137,7 @@ APP.filters = (() => {
             <i class="material-icons align-top close-icon">close</i></span>`;
 
         filterContainer.insertAdjacentHTML('beforeend', createButton);
-        gridContainer.setAttribute('style', 'grid-template-rows: 230px');
-
+        
         const filterButtonsIcon = [].slice.call(document.getElementsByClassName('close-icon'));
 
         let filteredButtons = filterButtonsIcon.filter((el) => {
@@ -138,6 +166,10 @@ APP.filters = (() => {
         });
     }
 
+    /**
+     * Hide the filter(s) box(es) when a user remove the filter.
+     * @param {string} countryName a country name that match one of the filters.
+     */
     const hideFilterElements = (countryName) => {
         const stationsList = [].slice.call(document.getElementsByClassName('text-country'));
 
