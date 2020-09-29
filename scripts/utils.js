@@ -109,9 +109,9 @@ APP.utils = (() => {
      * @param {number} interval interval in seconds.
      * @returns {number} the interval id.
      */
-    const runRefresh = (interval) => {
+    const runRefresh = () => {
 
-        let intervalInMilliseconds = interval * 1000;
+        let intervalInMilliseconds = APP.refreshTime * 1000;
         let intervalId = setInterval(refreshData, intervalInMilliseconds);
 
         return intervalId;
@@ -129,7 +129,7 @@ APP.utils = (() => {
      * Grouped functions to create the main index view.
      * @param {object} data a resolved promise object.
      */
-    const createView = (data, refreshTime) => {
+    const createView = (data) => {
 
         // hide loading gif
         if(data) {
@@ -142,8 +142,8 @@ APP.utils = (() => {
         APP.filters.countryFilter();
 
         // after the data is received start the refresh
-        let intervalId = APP.utils.runRefresh(refreshTime);
-        APP.dom.refreshButton(intervalId, refreshTime);
+        let intervalId = APP.utils.runRefresh();
+        APP.dom.refreshButton(intervalId);
 
         // add map link to index
         APP.dom.setMapLink(data);

@@ -8,7 +8,6 @@
 (() => {
 
     let time = new Date();
-    let refreshTime = 30;
 
     // add mobile menu
     APP.dom.toggleMenu();
@@ -23,7 +22,7 @@
     APP.api.getData()
     .then((data) => {
 
-        APP.utils.createView(data, refreshTime);
+        APP.utils.createView(data);
     })
     .catch(() => {
 
@@ -32,14 +31,15 @@
         .then((data) => {
 
             APP.dom.showDataError('warning');
-            APP.utils.createView(data, refreshTime);
+            APP.utils.createView(data);
 
         })
         .catch(error => {
 
             // if second api call fails, show the user an error message
             console.error(error);
-            
+
+            APP.dom.hideLoading();
             APP.dom.showDataError('danger');
         });
     });

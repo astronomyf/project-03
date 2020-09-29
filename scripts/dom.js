@@ -112,7 +112,7 @@ APP.dom = (() => {
         for(const name of stationNames) {
 
             const header = name.parentElement;
-            let pos = stations.map(e => e.name).indexOf(name.innerText.replace(/\s$/g, ''));
+            let pos = stations.map(e => e.name).indexOf(name.innerText.trim());
 
             header.addEventListener('click', (event) => {
 
@@ -330,7 +330,7 @@ APP.dom = (() => {
 
                 const header = temp.parentElement.parentElement.parentElement.parentElement.parentElement;
                 const cityName = temp.parentElement.parentElement.parentElement.parentElement.parentElement
-                .firstElementChild.firstElementChild.nextElementSibling.innerText.replace(/\s$/, '');
+                .firstElementChild.firstElementChild.nextElementSibling.innerText.trim();
                 let pos = stations.map(e => e.name).indexOf(cityName);
                 
                 if(!header.hasAttribute('style')) {

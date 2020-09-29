@@ -1,5 +1,5 @@
 /**
- * @file config.js
+ * @file station.js
  * @author Francesco Violante
  * 
  * Class module for the weather stations dashboard.
