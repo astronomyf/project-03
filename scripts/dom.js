@@ -23,11 +23,13 @@ APP.dom = (() => {
             fixMapView();
         });
 
+        // menu link mobile
         linkList[3].addEventListener('click', () => {
 
             const mainContainer = document.getElementsByClassName('main')[0];
             mainContainer.style.padding = '0px';
             mainContainer.style.zIndex = '1';
+            
             APP.utils.loadMapPage(stations, [stations[61].lat, stations[61].lon], 'all');
         });
     }
