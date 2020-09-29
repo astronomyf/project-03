@@ -30,7 +30,7 @@ APP.utils = (() => {
         const mainContainer = document.getElementsByClassName('main')[0];
         const header = document.getElementsByTagName('header')[0];
 
-        mainContainer.innerHTML = await fetchDynamicPage('../map.html');
+        mainContainer.innerHTML = await fetchDynamicPage('./map.html');
         header.style.display = "none";
 
         createMapView(stations, coords, options);

@@ -17,7 +17,7 @@ APP.dom = (() => {
         const linkList = document.querySelectorAll('.menu-list li a');
 
         // menu link
-        linkList[2].addEventListener('click', () => {
+        linkList[1].addEventListener('click', () => {
 
             APP.utils.loadMapPage(stations, [stations[61].lat, stations[61].lon], 'all');
             fixMapView();
@@ -138,7 +138,9 @@ APP.dom = (() => {
                     <div class="text-altitude">Altitude</div>
                     <div class="value-altitude">${station.elevation == null ? 'N.D.' : station.elevation}m</div>
                     <div class="text-temperature">Temperature</div>
-                    <div class="value-temperature opacity" style="color:#${colorTemperature(station)}">${station.temperature == null ? 'N.D.' : station.temperature + '°C'}</div>
+                    <div class="value-temperature opacity" 
+                    style="color:#${colorTemperature(station)}">${station.temperature == null ? 'N.D.' : station.temperature + '°C'}
+                    </div>
                     <div class="text-humidity">Humidity</div>
                     <div class="value-humidity opacity">${station.humidity == null ? 'N.D.' : station.humidity + '%'}</div>
                     <div class="arrow-icon">
@@ -161,12 +163,13 @@ APP.dom = (() => {
      */
     const getLiveImage = (station) => {
         let url = station.webcamLiveUrl;
-
+        
         if(!url) {
+
             url = station.webcamLiveUrl2;
 
             if(!url) {
-                // use placeholder instead
+
                 url = 'https://riabilitazionelavalle.it/wp-content/uploads/2016/10/orionthemes-placeholder-image.jpg';
             }
         }
@@ -253,7 +256,11 @@ APP.dom = (() => {
                         </div>
                     </div>
                 </div>
-                <div class="list-body-live" style="background-image:url(${getLiveImage(station)})"></div>
+                <div class="list-body-live">
+                    <img src="${getLiveImage(station)}" 
+                        onerror="this.onerror=null;this.src='https://riabilitazionelavalle.it/wp-content/uploads/2016/10/orionthemes-placeholder-image.jpg'" 
+                        style="width:100%; height:100%;">
+                </div>
         </div>`;
 
         target.insertAdjacentHTML('afterend', bodyTemplate);
@@ -298,7 +305,8 @@ APP.dom = (() => {
             maxTemperature.forEach((temp, index) => {
 
                 const header = temp.parentElement.parentElement.parentElement.parentElement.parentElement;
-                const cityName = temp.parentElement.parentElement.parentElement.parentElement.parentElement.firstElementChild.firstElementChild.nextElementSibling.innerText.replace(/\s$/, '');
+                const cityName = temp.parentElement.parentElement.parentElement.parentElement.parentElement
+                .firstElementChild.firstElementChild.nextElementSibling.innerText.replace(/\s$/, '');
                 let pos = stations.map(e => e.name).indexOf(cityName);
                 
                 if(!header.hasAttribute('style')) {

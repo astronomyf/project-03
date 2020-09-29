@@ -115,7 +115,8 @@ APP.filters = (() => {
                 if(checkArray(station.innerText)) {
                     station.parentElement.parentElement.parentElement.removeAttribute('style');
                 } else {
-                    station.parentElement.parentElement.parentElement.setAttribute('style', 'display:none!important');
+                    station.parentElement.parentElement
+                    .parentElement.setAttribute('style', 'display:none!important');
                 }
             }
 

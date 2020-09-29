@@ -73,6 +73,8 @@
       */
     const getBackupData = async () => {
 
+        let stations = [];
+
         const response = await fetch("https://jsonblob.com/api/0ef3d095-fd97-11ea-b2e5-85f177c3d671", {
             header: {
                 "Content-Type": "application/json" 
@@ -85,7 +87,34 @@
 
         const data = await response.json();
 
-        return data;
+        for(const res of data) {
+    
+            const station = res.station;
+            stations.push(new APP.model.Station(station.id, 
+                                       station.city, 
+                                       station.climate, 
+                                       station.nation.name, 
+                                       station.nation.alpha2_code, 
+                                       station.region.name, 
+                                       station.province.name, 
+                                       station.lat, 
+                                       station.lng, 
+                                       station.elevation, 
+                                       station.image_url, 
+                                       station.webcam,
+                                       station.webcam_url, 
+                                       res.weather_icon.icon, 
+                                       res.temperature, 
+                                       res.relative_humidity,
+                                       res.temperature_max,
+                                       res.temperature_min,
+                                       res.relative_humidity_max,
+                                       res.relative_humidity_min,
+                                       res.wind_strength,
+                                       res.rain));
+       }
+
+        return stations;
     }
 
     /**
