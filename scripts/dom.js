@@ -22,6 +22,14 @@ APP.dom = (() => {
             APP.utils.loadMapPage(stations, [stations[61].lat, stations[61].lon], 'all');
             fixMapView();
         });
+
+        linkList[3].addEventListener('click', () => {
+
+            const mainContainer = document.getElementsByClassName('main')[0];
+            mainContainer.style.padding = '0px';
+            mainContainer.style.zIndex = '1';
+            APP.utils.loadMapPage(stations, [stations[61].lat, stations[61].lon], 'all');
+        });
     }
 
     /**
@@ -79,7 +87,13 @@ APP.dom = (() => {
         stationButton.addEventListener('click', () => {
 
             APP.utils.loadMapPage(station, [station.lat, station.lon], 'single');
-            fixMapView();
+            if(window.innerWidth > 900) {
+                fixMapView();
+            } else {
+                const mainContainer = document.getElementsByClassName('main')[0];
+                mainContainer.style.padding = '0px';
+                mainContainer.style.zIndex = '1';
+            }
         });
     }
 
@@ -209,6 +223,11 @@ APP.dom = (() => {
         const bodyTemplate = `
             <div class="list-body">
                 <div class="list-body-general">
+                    <div class="station-weather opacity">
+                        <b>Weather conditions: </b>
+                        <img src="${station.weatherIcon}">
+                        <span>${station.weatherDescr}</span>
+                    </div>
                     <div class="station-description">${station.description}</div>
                     <a class="btn btn-primary">Open in map</a>
                 </div>
@@ -257,7 +276,7 @@ APP.dom = (() => {
                     </div>
                 </div>
                 <div class="list-body-live">
-                    <img src="${getLiveImage(station)}" 
+                    <img class="list-body-image" src="${getLiveImage(station)}" 
                         onerror="this.onerror=null;this.src='https://riabilitazionelavalle.it/wp-content/uploads/2016/10/orionthemes-placeholder-image.jpg'" 
                         style="width:100%; height:100%;">
                 </div>
@@ -299,6 +318,9 @@ APP.dom = (() => {
          const windValue = [].slice.call(document.getElementsByClassName('wind-value'));
          const rainValue = [].slice.call(document.getElementsByClassName('rain-value'));
          const liveImage = [].slice.call(document.getElementsByClassName('list-body-live'));
+         const weatherInfoContainer = [].slice.call(document.getElementsByClassName('station-weather'));
+         const weatherIcon = [].slice.call(document.querySelectorAll('.station-weather > img'));
+         const weatherDescr = [].slice.call(document.querySelectorAll('.station-weather span'));
 
          if(maxTemperature.length > 0) {
 
@@ -317,6 +339,8 @@ APP.dom = (() => {
                     minHumidity[index].innerText = stations[pos].minHum == null ? 'N.D' : stations[pos].minHum + '%';
                     rainValue[index].innerText = stations[pos].rain == null ? 'N.D' : stations[pos].rain + ' mm';
                     liveImage[index].style.backgroundImage = `url(${getLiveImage(stations[pos])})`;
+                    weatherIcon[index].src = stations[pos].weatherIcon;
+                    weatherDescr[index].innerText = stations[pos].weatherDescr;
 
                     // add animation
                     addAnimatedValues(maxTemperature[index]);
@@ -326,6 +350,7 @@ APP.dom = (() => {
                     addAnimatedValues(windValue[index]);
                     addAnimatedValues(rainValue[index]);
                     addAnimatedValues(liveImage[index]);
+                    addAnimatedValues(weatherInfoContainer[index]);
                 }
              });
          }

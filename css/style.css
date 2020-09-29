@@ -404,6 +404,24 @@ body {
   margin-bottom: 20px;
 }
 
+.station-weather {
+  margin-top: 20px;
+}
+
+.station-weather > b {
+  font-size: 20px;
+}
+
+.station-weather > img {
+  width: auto;
+  height: 50px;
+  margin-top: -5px;
+}
+
+.station-weather span {
+  font-size: 16px;
+}
+
 .station-description {
   line-height: 30px;
   margin-top: 20px;
@@ -418,6 +436,13 @@ body {
   background-repeat: no-repeat;
   background-position: center;
   justify-self: end;
+}
+
+.list-body-image {
+  width: 100%;
+  height: 100%;
+  object-position: center;
+  object-fit: cover;
 }
 
 /* Station list body > icons elements*/
