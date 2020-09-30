@@ -29,7 +29,7 @@ APP.dom = (() => {
             const mainContainer = document.getElementsByClassName('main')[0];
             mainContainer.style.padding = '0px';
             mainContainer.style.zIndex = '1';
-            
+
             APP.utils.loadMapPage(stations, [stations[61].lat, stations[61].lon], 'all');
         });
     }
@@ -139,7 +139,7 @@ APP.dom = (() => {
         const listContainer = document.getElementById('main-list-container');
 
         for(const station of stations) {
-
+            
             const templateView = `
             <div class="list-wrapper col-12">
                 <div class="list-header align-items-center">

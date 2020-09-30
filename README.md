@@ -117,10 +117,10 @@ We used the following colors for the page:
   
   ## Authors
   
-  - **Francesco Violante**: _Team Leader, Programmer_ (`api.js`, `config.js`, `dom.js`, `filters.js`, `main.js`, `utils.js`, `index.html`, `style.css`) and compatibility with IE 11
+  - **Francesco Violante**: _Team Leader, Programmer_ (`api.js`, `config.js`, `dom.js`, `filters.js`, `main.js`, `utils.js`, `index.html`, `style.css`, `station.js`) and compatibility with IE 11
   - **Emanuele Amicizia**: _Programmer_ (`dom.js`,`utils.js`, `index.html`, `style.css`)
   - **Simone Cavaliere**: _Programmer_ (`dom.js`, `main.js`, `index.html`,`style.css`, `readme.md`)
-  - **Fabio Faggion**: _Programmer_ (`dom.js`, `index.html`, `style.css`)
+  - **Fabio Faggion**: _Programmer_ (`dom.js`, `utils.js`, `index.html`, `style.css`)
 
 [_Back to the summary_](#summary)
 
@@ -150,6 +150,7 @@ The program runs with every major browser, including:
 - `Microsoft Edge`
 - `Mozilla Firefox`
 - `Safari`
+- `Brave`
 - `Internet Explorer 11*`
 
 #### Internet Explorer 11*

@@ -40,6 +40,7 @@
             this.rain = rain; 
             this.wind = wind;  
         }
+
     }
 
     return {

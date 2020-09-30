@@ -28,6 +28,12 @@ body {
 	overflow: hidden;
 }
 
+@media all and (-ms-high-contrast:none) {
+  body {
+    overflow: auto;
+  }
+}
+
 /* === Main layout === */
 /* Assign grid instructions to our parent grid container */
 .grid-container {
